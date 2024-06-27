@@ -1,0 +1,122 @@
+$color-background: #4b4b4b;
+$color-text: #F2F2D5;
+
+$colors: (
+        primary: #3498DB,
+        secondary: #2FE0CA,
+        tertiary: #A2F740,
+        quaternary: #E0A62F,
+        error: #F83B34,
+        title: #708090,
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+$button-boarder-color: (
+        nutral: #9a7c59,
+        success: #22FF007F,
+        primary: #3498DB,
+        warnning: #E0A62F,
+        error: #F83B34,
+);
+
+@function button-border-color($color-name) {
+  @return map-get($button-boarder-color, $color-name);
+}
+
+$row-colors: (
+        text: #000000,
+        text2: rgba(34, 255, 0, 0.5),
+        header: #757575,
+        odd: #808080,
+        even: #C0C0C0
+);
+
+@function row-color($color-name) {
+  @return map-get($row-colors, $color-name);
+}
+
+$loading-colors: (
+        start: #969696,
+        middle: #cccccc,
+        end: #f2f2f2,
+        background: #9b9da2
+);
+
+@function loading-color($color-name) {
+  @return map-get($loading-colors, $color-name);
+}
+
+$color-button-back: #1C3CE6;
+$color-input-background: #D5E7F2;
+$color-background-header: #8D9687;
+$color-header: #484A46;
+$color-scroll-track-bg: #848d9a;
+$color-scroll-track-thumb-bg: #292c2c;
+$color-scroll-track-thumb-hover-bg: #26a865;
+
+$color-required-input: #78ff66;
+
+// fonts
+$font-weight-controls: bold;
+
+// sizes
+$height-input-field: 38px;
+$width-input-name-field: 220px;
+$width-input-short-field: 100px;
+
+// date sizes
+$width-short-date-field: 120px;
+
+// padding
+$padding-input-field: 10px;
+$padding-input-left: 2px;
+
+// margins
+$margin-input-row-bottom: 2px;
+$margin-input-field-top: 0;
+$margin-input-field-right: 0;
+$margin-input-field-bottom: 10px;
+$margin-input-field-left: 0;
+
+
+body {
+  background-color: $color-background;
+  color: $color-text;
+}
+
+li {
+  &.no-decor {
+    list-style-type: none;
+  }
+}
+
+li span {
+  font-family: 'Lucida Console', 'Courier New', monospace;
+  color: #5ab7ec;
+  //margin-left: 10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $color-scroll-track-bg;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $color-scroll-track-thumb-bg;
+  border-radius: 10px;
+
+  &:hover {
+    background: $color-scroll-track-thumb-hover-bg;
+  }
+}
+
+

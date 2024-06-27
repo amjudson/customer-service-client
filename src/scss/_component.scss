@@ -1,0 +1,541 @@
+@import "base";
+
+h1, h2, h3, h4, h5, h6 {
+  &.indent-short-align-right {
+    text-align: right;
+    flex: 0 0 auto;
+    width: 16.66666667%;
+  }
+}
+
+h5 span {
+  color: color(secondary);
+}
+
+h3 span {
+  font-size: 20px;
+  color: color(secondary);
+}
+
+//a {
+//  color: color(primary);
+//  text-decoration: none;
+//  &:hover {
+//    color: darken(color(primary), 10%);
+//  }
+//}
+
+
+
+// Container
+.container {
+  &.grid-margin {
+    //margin: 30px 10px;
+  }
+
+  &.scroll-bar {
+    width: 20px;
+    height: auto;
+  }
+
+  &.no-break {
+    white-space: nowrap;
+  }
+
+  &.with-break {
+    font-size: small;
+    background-color: lightgrey;
+    color: black;
+    white-space: pre-wrap;
+  }
+
+  &-center {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    text-align: center;
+  }
+}
+
+.container-fluid {
+  &.split {
+    width: 50%;
+  }
+  &.full-view {
+    width: 100%;
+  }
+  &.text-display {
+    h4, h5 {
+      color: color(primary);
+    }
+    h6 {
+      width: 75%;
+      color: black;
+      &:nth-child(odd) {
+        background-color: row-color(odd);
+      }
+      &:nth-child(even) {
+        background-color: row-color(even);
+      }
+      margin: 0;
+      strong {
+        margin-left: 30px;
+      }
+    }
+  }
+}
+
+// Navbar
+.navbar {
+
+}
+
+// Row
+
+.row {
+  &-hidden {
+    display: none;
+  }
+  &.detail {
+    cursor: pointer;
+    color: lighten(row-color(text), 20%);
+    font-weight: bold;
+    border-bottom: 1px solid black;
+
+    &:nth-child(odd) {
+      background-color: row-color(odd);
+    }
+
+    &:nth-child(even) {
+      background-color: row-color(even);
+    }
+
+    &.no-pointer {
+      cursor: default;
+    }
+  }
+  &.header {
+    font-weight: bold;
+    font-size: medium;
+    background-color: row-color(header);
+    color: row-color(text);
+    border-bottom: 2px solid $color-header;
+  }
+  &.input {
+    margin-bottom: $margin-input-row-bottom;
+  }
+  &.button-row {
+    padding: 5px;
+    margin: 15px 5px 0 0;
+  }
+}
+
+// Columns
+.col {
+  overflow: hidden;
+  &.line-end {
+    border-right: 1px solid $color-header;
+  }
+
+  &.col-id {
+    flex: 0 0 auto;
+    width: 4.75%;
+
+    &-detail {
+      font-size: small;
+      font-weight: normal;
+    }
+  }
+
+  &.small-title {
+    font-size: small;
+    font-weight: bold;
+    color: color(secondary);
+  }
+  &.no-pointer {
+    cursor: default;
+  }
+
+  &.small-col-header {
+    font-size: smaller;
+    margin: 0 0 0 2px;
+  }
+  &.button-col {
+    text-align: right;
+    flex: 0 0 auto;
+    width: 16.66666667%;
+  }
+}
+
+i.add-pointer {
+  cursor: pointer;
+}
+
+.add-pointer {
+  cursor: pointer;
+}
+
+// Form
+.form-control {
+  height: $height-input-field;
+  padding: $padding-input-field;
+  font-weight: $font-weight-controls;
+  background-color: $color-input-background;
+  margin: $margin-input-field-top $margin-input-field-right $margin-input-field-bottom $margin-input-field-left;
+
+  &-readonly {
+    background-color: darken($color-input-background, 30%);
+  }
+
+  &-required {
+    background-color: $color-required-input;
+  }
+
+  &-name-field {
+    width: $width-input-name-field;
+  }
+
+  &-short-field {
+    width: $width-input-short-field;
+  }
+}
+
+.form-select {
+  font-weight: $font-weight-controls;
+  background-color: $color-input-background;
+  height: $height-input-field;
+  padding: $padding-input-field;
+  margin: $margin-input-field-top $margin-input-field-right $margin-input-field-bottom $margin-input-field-left;
+
+  option {
+    font-weight: $font-weight-controls;
+  }
+
+  &-required {
+    background-color: $color-required-input;
+  }
+
+  &-size {
+    width: 40%;
+  }
+
+  &-left-gutter {
+    margin-left: 20px;
+  }
+}
+
+.input-group {
+  border-radius: 5px;
+
+  span {
+    height: $height-input-field;
+    border-bottom-right-radius: 5px;
+  }
+}
+
+label {
+  margin-left: 20px;
+
+  &-form-label {
+    text-align: right;
+    padding-right: 0;
+    margin-right: 0;
+    justify-content: right;
+    align-items: center;
+    align-content: center;
+  }
+}
+
+.form-label {
+  &.on-top {
+    margin-left: 20px;
+    min-height: 38px;
+  }
+}
+
+// tooltip
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border: 1px dotted black;
+  & .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #555 transparent transparent transparent;
+    }
+  }
+
+  &:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+// unordered list
+li a.menu-item {
+  text-decoration: none;
+  color: color('quaternary');
+
+  &.unused {
+    cursor: auto;
+    color: lighten(color('quaternary'), 30%);
+  }
+}
+
+// Button
+.btn {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px 0 10px 0;
+
+  &.add {
+    margin: 5px 0;
+    width: 25px;
+    height: 25px;
+
+    span {
+      text-align: center;
+    }
+  }
+
+  &.app-back {
+    background-color: $color-button-back;
+  }
+
+  &.add-border {
+    border: 1px solid button-border-color(success);
+  }
+}
+
+
+// react date picker
+.react-datepicker-wrapper {
+  & input {
+    background-color: $color-input-background;
+    border-radius: 10px;
+    font-weight: $font-weight-controls;
+    &.short {
+      width: $width-short-date-field;
+    }
+  }
+}
+
+// react select
+//.react-select-box {
+//  &__control {
+//    background-color: $color-input-background;
+//    min-height: 25px;
+//    height: 25px;
+//  }
+//  &__value-container {
+//    color: red;
+//    alignment: center;
+//    margin-bottom: 20px;
+//    padding: 0;
+//    min-height: 25px;
+//    height: 25px;
+//  }
+//  &__indicators {
+//    min-height: 23px;
+//    height: 23px;
+//  }
+//  &__input-container {
+//    margin: 0;
+//    color: red;
+//    align-content: center;
+//    min-height: 23px;
+//    height: 23px;
+//  }
+//  &__input {
+//    margin: 0;
+//    color: red;
+//    align-content: center;
+//    min-height: 23px;
+//    height: 23px;
+//  }
+//
+//  &__single-value {
+//    color: red;
+//  }
+//}
+
+// Toast
+.toast-header {
+  background-image: linear-gradient(to right, #039eff, lighten(#039eff, 25%));
+  color: #FFC745;
+
+  button.btn-close {
+    position: absolute;
+    right: 0;
+    width: 20px;
+    margin-right: 10px;
+    background-color: lighten(red, 20%);
+  }
+}
+
+.toast-body {
+  background-image: linear-gradient(to right, #03993F, lighten(#03993F, 20%));
+  color: #FFE34E;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.error-message {
+  border: .5px solid red;
+  border-radius: 5px;
+  background-color: lightyellow;
+  color: red;
+  margin-top: 5px;
+  &-box {
+    margin: 20px;
+  }
+}
+
+.modal {
+  &-title {
+    color: red;
+  }
+  &-body {
+    color: black;
+  }
+}
+
+span {
+  &.activated {
+    color: #0ea019;
+  }
+  &.deactivated {
+    color: #959FA6;
+  }
+  &.accent {
+    color: #5ab7ec;
+  }
+  &.error {
+    color: red;
+  }
+}
+
+// react-select https://react-select.com/home
+.react-select-container {
+  height: 30px;
+  .react-select {
+    &__control {
+      color: yellow;
+    }
+    &__value-container {
+      color: green;
+    }
+    &__indicators {
+      color: grey;
+    }
+    &__menu {
+      color: purple;
+    }
+    &__menu-list {
+      color: deeppink;
+    }
+    &__option {
+      color: black;
+    }
+  }
+}
+
+// font Awesome icons
+.fa-square-plus {
+  --fa-primary-color: white;
+  --fa-secondary-color: #0ea019;
+}
+
+.fa-square-x {
+  --fa-primary-color: #4D4D4D;
+  --fa-secondary-color: #CFCFCF;
+}
+
+.fa-memo-circle-info, .fa-pen-to-square {
+  --fa-primary-color: rgba(255, 204, 0, 0.28);
+  --fa-secondary-color: #0033ff;
+}
+
+.fa-arrow-up-arrow-down {
+  cursor: pointer;
+  margin-left: 5px;
+  --fa-primary-color: #0ea019;
+  --fa-secondary-color: #0033ff;
+}
+
+.fa-arrow-down {
+  cursor: pointer;
+  margin-left: 5px;
+  color: lighten(#0033ff, 15%);
+}
+
+.fa-arrow-up {
+  cursor: pointer;
+  margin-left: 5px;
+  color: #0ea019;
+}
+
+.fa-octagon-check {
+  --fa-primary-color: white;
+  --fa-secondary-color: green;
+}
+
+.fa-octagon-xmark {
+  --fa-primary-color: white;
+  --fa-secondary-color: red;
+}
+
+
+.fa-square-check, .fa-square {
+  &.checked {
+    --fa-primary-color: white;
+    --fa-secondary-color: #0ea019;
+  }
+
+  &.unchecked {
+    --fa-primary-color: white;
+    --fa-secondary-color: red;
+  }
+
+  &.is-not-null {
+    --fa-primary-color: white;
+    --fa-secondary-color: #0077ff;
+  }
+}
+
+.move-to-right {
+  display: block;
+  float: right;
+}
+
