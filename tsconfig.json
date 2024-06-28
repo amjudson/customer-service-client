@@ -18,11 +18,6 @@
       }
     ],
     "paths": {
-      "@components/*": ["./src/components/*"],
-      "@interfaces/*": ["./src/interfaces/*"],
-      "@state/*": ["./src/state/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@scss/*": ["./src/scss/*"],
       "@/*": ["./src/*"]
     }
   },

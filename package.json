@@ -3,16 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3012",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@fortawesome/fontawesome-pro": "^6.5.2",
+    "@react-aria/ssr": "^3.9.4",
     "@reduxjs/toolkit": "^2.2.5",
     "bootstrap": "^5.3.3",
     "chroma-js": "^2.4.2",
+    "mext": "^0.0.60",
     "next": "14.2.4",
     "react": "^18",
     "react-bootstrap": "^2.10.3",
@@ -36,6 +38,7 @@
     "@types/jest": "^29.5.12",
     "@types/node": "^20.14.9",
     "@types/react": "^18",
+    "@types/react-datepicker": "^6.2.0",
     "@types/react-dom": "^18",
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "eslint": "^8",
