@@ -1,10 +1,11 @@
 'use client'
 import React from 'react'
 import {useGetClientListQuery} from '@/redux/api/clientApi'
-import {ClientModel} from '@/models/clientModel'
+import {ClientListResponseModel} from '@/models/responses/clientListResponseModel'
+import ClientList from '@/components/client/clientList'
 
 const Page = () => {
-  const {data, isLoading, error} = useGetClientListQuery(null)
+  const {data, isLoading} = useGetClientListQuery<ClientListResponseModel>(null)
   if (isLoading) {
     return <div>Loading...</div>
   }
@@ -12,11 +13,8 @@ const Page = () => {
   console.log(data)
   return (
     <div>
-      <h1>Index Page</h1>
-      {data &&
-        data.result.map((client: ClientModel) =>
-          (<div className={'text-white'} key={client.clientId}>{client.clientName}</div>))
-      }
+      <h1>Client List</h1>
+      <ClientList clientList={data.result} />
     </div>
   )
 }
