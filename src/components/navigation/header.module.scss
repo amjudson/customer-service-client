@@ -1,0 +1,13 @@
+.header {
+  cursor: pointer;
+  &.headerBrand {
+    font-size: 1rem;
+    font-weight: 500;
+    color: green !important;
+  }
+  &.headerNavLink {
+    text-decoration: none;
+    color: blue;
+  }
+}
+
