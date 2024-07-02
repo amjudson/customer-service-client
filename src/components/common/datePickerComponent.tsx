@@ -12,7 +12,7 @@ export interface DatePickerComponentProps {
   isCol?: boolean
   id?: string
 
-  onChange: (date: Date) => void
+  onChange: (date: Date | null) => void
 }
 
 const DatePickerComponent: React.FC<DatePickerComponentProps> = ({

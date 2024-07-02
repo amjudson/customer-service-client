@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import {Col, Form, Row} from 'react-bootstrap'
-import {selectSize, SizeOption} from './helpers'
+import {SelectSize, SizeOption} from './helpers'
 
 interface TextInputProps {
 	name?: string
@@ -45,8 +45,8 @@ const TextInput: React.FC<TextInputProps> = ({
                                              }) => {
 	const valueType = inputType ? inputType : 'text'
 
-	const selectBoxSize = selectSize(size)
-	let labelColumnSize = selectSize(labelSize)
+	const selectBoxSize = SelectSize(size)
+	let labelColumnSize = SelectSize(labelSize)
 	if (justifyRight) {
 		labelColumnSize += ' text-end'
 	}

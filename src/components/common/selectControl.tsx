@@ -3,7 +3,7 @@ import Select from 'react-select'
 import {Col, Form, Row} from 'react-bootstrap'
 import {SelectOption} from '@/data'
 import {baseStylesConfig} from '../configuration/selectStyles'
-import {selectSize, SizeOption} from './helpers'
+import {SelectSize, SizeOption} from './helpers'
 
 interface SelectControlProps {
 	name: string
@@ -36,8 +36,8 @@ const SelectControl: React.FC<SelectControlProps> = ({
 	                                                               isDisplayed = false,
 	                                                               error = '',
                                                                }) => {
-	const selectBoxSize = size ? selectSize(size) : 'col-2'
-	let selectLabelSize = labelSize ? selectSize(labelSize) : 'col-2'
+	const selectBoxSize = size ? SelectSize(size) : 'col-2'
+	let selectLabelSize = labelSize ? SelectSize(labelSize) : 'col-2'
 
 	if (justifyRight) {
 		selectLabelSize += ' text-end'

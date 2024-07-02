@@ -7,14 +7,25 @@ import {
 } from 'react-bootstrap'
 import Link from 'next/link'
 import styles from '@/components/navigation/header.module.scss'
-import {useAppSelector} from '@/redux/hooks'
+import {useAppDispatch, useAppSelector} from '@/redux/hooks'
+import {useRouter} from 'next/navigation'
+import {setLoggedInUser} from '@/redux'
+import {emptyUserState} from '@/redux/userAuthSlice'
 
 const linkStyle = {
   cursor: 'pointer',
 }
 
 const Header = () => {
+  const router = useRouter();
+  const dispatch = useAppDispatch()
   const userData = useAppSelector(state => state.userAuthSlice)
+
+  const handleLogout = () => {
+    localStorage.removeItem('token')
+    dispatch(setLoggedInUser({...emptyUserState}))
+    router.push('/')
+  }
 
   return (
     <>
@@ -32,22 +43,41 @@ const Header = () => {
           </Nav>
         </Container>
         <Container className={'justify-content-end'}>
-          <Row className={'me-3'}>
-            <Col className={'col-5'}>
-              <Button
-                variant={'primary'}
-              >
-                Login
-              </Button>
-            </Col>
-            <Col className={'col-7'}>
-              <Button
-                variant={'secondary'}
-              >
-                Register
-              </Button>
-            </Col>
-          </Row>
+          {userData.id && (
+            <Row className={'me-1'}>
+              <Col className={'col-6'}>
+                  Welcome, {userData.firstName} {userData.lastName}
+              </Col>
+              <Col className={'col-6'}>
+                <Button
+                  variant={'secondary'}
+                  onClick={handleLogout}
+                >
+                  Logout
+                </Button>
+              </Col>
+            </Row>
+          )}
+          {!userData.id && (
+            <Row className={'me-3'}>
+              <Col className={'col-5'}>
+                <Button
+                  variant={'primary'}
+                  onClick={() => router.push('/login')}
+                >
+                  Login
+                </Button>
+              </Col>
+              <Col className={'col-7'}>
+                <Button
+                  variant={'secondary'}
+                  onClick={() => router.push('/register')}
+                >
+                  Register
+                </Button>
+              </Col>
+            </Row>
+          )}
         </Container>
       </Navbar>
     </>
