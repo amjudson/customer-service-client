@@ -1,4 +1,4 @@
-export interface PersonPhoneLookupModel {
+export default interface PersonPhoneLookupModel {
 	primary: boolean;
 	phoneId: number;
 	personId: number;

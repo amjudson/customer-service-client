@@ -1,7 +1,7 @@
-import {BaseResponseModel} from '@/models/responses/baseResponseModel'
-import {AspNetRoleModel} from '@/models/aspNetRoleModel'
+import {BaseResponseModel} from '@/models/responses'
+import {AspNetRoleModel} from '@/models'
 
-export interface AspNetRoleResponseModel extends BaseResponseModel {
+export default interface AspNetRoleResponseModel extends BaseResponseModel {
 	data: {
 		result: AspNetRoleModel;
 	}

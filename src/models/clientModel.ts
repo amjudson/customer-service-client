@@ -1,4 +1,4 @@
-export interface ClientModel {
+export default interface ClientModel {
   clientId: string;
   clientName: string;
   active: boolean;

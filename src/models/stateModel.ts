@@ -1,4 +1,4 @@
-export interface StateModel {
+export default interface StateModel {
 	abbreviation: string;
 	name: string;
 	stateId: number;

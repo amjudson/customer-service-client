@@ -22,6 +22,7 @@
 
 # auto generated css files
 /**/*.css
+/**/*.css.map
 
 # debug
 npm-debug.log*

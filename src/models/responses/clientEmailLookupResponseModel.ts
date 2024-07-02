@@ -1,7 +1,7 @@
-import {BaseResponseModel} from '@/models/responses/baseResponseModel'
-import {ClientEmailLookupModel} from '@/models/clientEmailLookupModel'
+import {BaseResponseModel} from '@/models/responses'
+import {ClientEmailLookupModel} from '@/models'
 
-export interface ClientEmailLookupResponseModel extends BaseResponseModel {
+export default interface ClientEmailLookupResponseModel extends BaseResponseModel {
 	data: {
 		result: ClientEmailLookupModel;
 	}

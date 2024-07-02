@@ -1,7 +1,7 @@
-import {BaseResponseModel} from '@/models/responses/baseResponseModel'
-import {EmailTypeModel} from '@/models/emailTypeModel'
+import {BaseResponseModel} from '@/models/responses'
+import {EmailTypeModel} from '@/models'
 
-export interface EmailTypeResponseModel extends BaseResponseModel {
+export default interface EmailTypeResponseModel extends BaseResponseModel {
 	data: {
 		result: EmailTypeModel;
 	}

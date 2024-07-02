@@ -1,4 +1,4 @@
-export interface AddressTypeModel {
+export default interface AddressTypeModel {
 	name: string;
 	clientId: string;
 	addressTypeId: number;

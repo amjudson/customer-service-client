@@ -1,4 +1,4 @@
-export interface AppointmentTypeModel {
+export default interface AppointmentTypeModel {
 	name: string;
 	description: string;
 	clientId: string;

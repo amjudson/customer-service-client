@@ -1,7 +1,7 @@
-import {BaseResponseModel} from '@/models/responses/baseResponseModel'
-import {AddressTypeModel} from '@/models/addressTypeModel'
+import {BaseResponseModel} from '@/models/responses'
+import {AddressTypeModel} from '@/models'
 
-export interface AddressTypeResponseModel extends BaseResponseModel {
+export default interface AddressTypeResponseModel extends BaseResponseModel {
 	data: {
 		result: AddressTypeModel;
 	}

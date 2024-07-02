@@ -1,4 +1,4 @@
-export interface EmployeeModel {
+export default interface EmployeeModel {
 	employeeTypeId: number;
 	alias: string;
 	employeeId: number;

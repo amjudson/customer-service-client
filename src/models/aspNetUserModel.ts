@@ -1,4 +1,4 @@
-export interface AspNetUserModel {
+export default interface AspNetUserModel {
 	accessFailedCount: number;
 	phoneNumber: string;
 	id: string;
