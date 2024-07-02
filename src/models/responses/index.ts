@@ -10,6 +10,7 @@ import AspNetUserResponseModel from './aspNetUserResponseModel'
 import AspNetUserRoleResponseModel from './aspNetUserRoleResponseModel'
 import AspNetUserTokenResponseModel from './aspNetUserTokenResponseModel'
 import BaseResponseModel from './baseResponseModel'
+import BasePostResponseModel from './basePostResponseModel'
 import ClientAddressLookupResponseModel from './clientAddressLookupResponseModel'
 import ClientEmailLookupResponseModel from './clientEmailLookupResponseModel'
 import ClientFeatureLookupResponseModel from './clientFeatureLookupResponseModel'
@@ -32,6 +33,8 @@ import PhoneResponseModel from './phoneResponseModel'
 import PhoneTypeResponseModel from './phoneTypeResponseModel'
 import RaceResponseModel from './raceResponseModel'
 import StateResponseModel from './stateResponseModel'
+import RegisterUserResponseModel from '@/models/responses/registerUserResponseModel'
+
 export type {
 	AddressResponseModel,
 	AddressTypeResponseModel,
@@ -45,6 +48,7 @@ export type {
 	AspNetUserRoleResponseModel,
 	AspNetUserTokenResponseModel,
 	BaseResponseModel,
+	BasePostResponseModel,
 	ClientAddressLookupResponseModel,
 	ClientEmailLookupResponseModel,
 	ClientFeatureLookupResponseModel,
@@ -66,5 +70,6 @@ export type {
 	PhoneResponseModel,
 	PhoneTypeResponseModel,
 	RaceResponseModel,
+	RegisterUserResponseModel,
 	StateResponseModel,
 }

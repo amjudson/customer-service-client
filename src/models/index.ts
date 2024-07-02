@@ -21,6 +21,7 @@ import EmailTypeModel from './emailTypeModel'
 import EmployeeModel from './employeeModel'
 import EmployeeTypeModel from './employeeTypeModel'
 import GenderModel from './genderModel'
+import LoginUserModel from '@/models/loginUserModel'
 import PeopleModel from './peopleModel'
 import PersonAddressLookupModel from './personAddressLookupModel'
 import PersonEmailLookupModel from './personEmailLookupModel'
@@ -55,6 +56,7 @@ export type {
 	EmployeeModel,
 	EmployeeTypeModel,
 	GenderModel,
+	LoginUserModel,
 	PeopleModel,
 	PersonAddressLookupModel,
 	PersonEmailLookupModel,

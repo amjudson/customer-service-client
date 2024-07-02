@@ -1,6 +1,6 @@
 export type SizeOption = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl' | 'xxxl'
 
-export const selectSize = (size: SizeOption) => {
+export const SelectSize = (size: SizeOption) => {
 	switch (size) {
 		case 'xs':
 			return 'col-1'

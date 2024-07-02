@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import {useGetClientListQuery} from '@/redux/api/clientApi'
-import {ClientListResponseModel} from '@/models/responses/clientListResponseModel'
+import {ClientListResponseModel} from '@/models/responses'
 import ClientList from '@/components/client/clientList'
 
 const Page = () => {

@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import {Col, Form, Row} from 'react-bootstrap'
-import {selectSize, SizeOption} from './helpers'
+import {SelectSize, SizeOption} from './helpers'
 
 interface CheckBoxControlProps {
 	name: string // name connected to Form.Check as label
@@ -32,8 +32,8 @@ const CheckBoxControl: React.FC<CheckBoxControlProps> = ({
                                                          }) => {
 	const id = name.replace(' ', '-').replace(':', '')
 	const useType = checkBoxType ? checkBoxType : 'switch'
-	const elementColumnSize = selectSize(size)
-	const labelColumnSize = selectSize(labelSize)
+	const elementColumnSize = SelectSize(size)
+	const labelColumnSize = SelectSize(labelSize)
 
 	const formLabel = (
 		<Form.Label htmlFor={id}>{label}</Form.Label>
