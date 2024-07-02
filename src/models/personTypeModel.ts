@@ -1,4 +1,4 @@
-export interface PersonTypeModel {
+export default interface PersonTypeModel {
 	personTypeId: number;
 	clientId: string;
 	name: string;

@@ -1,7 +1,7 @@
-import {BaseResponseModel} from '@/models/responses/baseResponseModel'
-import {AspNetUserTokenModel} from '@/models/aspNetUserTokenModel'
+import {BaseResponseModel} from '@/models/responses'
+import {AspNetUserTokenModel} from '@/models'
 
-export interface AspNetUserTokenResponseModel extends BaseResponseModel {
+export default interface AspNetUserTokenResponseModel extends BaseResponseModel {
 	data: {
 		result: AspNetUserTokenModel;
 	}

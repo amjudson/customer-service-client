@@ -1,4 +1,4 @@
-export interface PeopleModel {
+export default interface PeopleModel {
 	raceId: number;
 	personId: number;
 	prefix: string;

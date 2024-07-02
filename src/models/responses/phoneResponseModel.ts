@@ -1,7 +1,7 @@
-import {BaseResponseModel} from '@/models/responses/baseResponseModel'
-import {PhoneModel} from '@/models/phoneModel'
+import {BaseResponseModel} from '@/models/responses'
+import {PhoneModel} from '@/models'
 
-export interface PhoneResponseModel extends BaseResponseModel {
+export default interface PhoneResponseModel extends BaseResponseModel {
 	data: {
 		result: PhoneModel;
 	}

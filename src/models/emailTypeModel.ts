@@ -1,4 +1,4 @@
-export interface EmailTypeModel {
+export default interface EmailTypeModel {
 	emailTypeId: number;
 	name: string;
 	clientId: string;

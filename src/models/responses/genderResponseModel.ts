@@ -1,7 +1,7 @@
-import {BaseResponseModel} from '@/models/responses/baseResponseModel'
-import {GenderModel} from '@/models/genderModel'
+import {BaseResponseModel} from '@/models/responses'
+import {GenderModel} from '@/models'
 
-export interface GenderResponseModel extends BaseResponseModel {
+export default interface GenderResponseModel extends BaseResponseModel {
 	data: {
 		result: GenderModel;
 	}

@@ -1,4 +1,4 @@
-export interface ClientFeatureLookupModel {
+export default interface ClientFeatureLookupModel {
 	clientFeatureLookupId: number;
 	clientId: string;
 	clientFeatureId: number;

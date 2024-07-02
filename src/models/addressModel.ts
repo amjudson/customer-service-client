@@ -1,4 +1,4 @@
-export interface AddressModel {
+export default interface AddressModel {
 	addressLine2: string;
 	addressLine1: string;
 	zip: string;

@@ -1,4 +1,4 @@
-export interface ClientEmailLookupModel {
+export default interface ClientEmailLookupModel {
 	clientId: string;
 	emailId: number;
 	clientEmailLookupId: number;

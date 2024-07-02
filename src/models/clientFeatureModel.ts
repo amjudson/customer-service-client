@@ -1,4 +1,4 @@
-export interface ClientFeatureModel {
+export default interface ClientFeatureModel {
 	clientFeatureId: number;
 	createdDate: string;
 	enteredBy: string;

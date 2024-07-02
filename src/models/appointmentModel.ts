@@ -1,4 +1,4 @@
-export interface AppointmentModel {
+export default interface AppointmentModel {
 	appointmentTypeId: number;
 	name: string;
 	appointmentId: number;

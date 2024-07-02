@@ -1,4 +1,4 @@
-export interface PhoneTypeModel {
+export default interface PhoneTypeModel {
 	phoneTypeId: number;
 	name: string;
 	clientId: string;

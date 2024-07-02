@@ -1,4 +1,4 @@
-export interface AspNetUserTokenModel {
+export default interface AspNetUserTokenModel {
 	loginProvider: string;
 	value: string;
 	name: string;
