@@ -33,6 +33,8 @@ import PhoneTypeModel from './phoneTypeModel'
 import RaceModel from './raceModel'
 import StateModel from './stateModel'
 import UserModel from './userModel'
+import RoleSelection from './roleSelection'
+
 export type {
 	AddressModel,
 	AddressTypeModel,
@@ -67,6 +69,7 @@ export type {
 	PhoneModel,
 	PhoneTypeModel,
 	RaceModel,
+	RoleSelection,
 	StateModel,
 	UserModel,
 }

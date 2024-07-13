@@ -12,8 +12,10 @@ import {
 import {useGetUserListQuery} from '@/redux/api'
 import {VortexSpinner} from '@/components/common'
 import {ApplicationUserListResponseModel} from '@/models/responses'
+import {useRouter} from 'next/navigation'
 
 const UserPage = () => {
+  const route = useRouter()
   const {
     data,
     isLoading,
@@ -56,6 +58,7 @@ const UserPage = () => {
                       <Col className={'col-3'}>
                         <Button
                           variant={'primary'}
+                          onClick={() => route.push(`/users/manage/roles/${user.id}`)}
                         >
                           Roles
                         </Button>

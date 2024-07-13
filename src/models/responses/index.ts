@@ -34,8 +34,9 @@ import PersonTypeResponseModel from './personTypeResponseModel'
 import PhoneResponseModel from './phoneResponseModel'
 import PhoneTypeResponseModel from './phoneTypeResponseModel'
 import RaceResponseModel from './raceResponseModel'
+import RegisterUserResponseModel from './registerUserResponseModel'
 import StateResponseModel from './stateResponseModel'
-import RegisterUserResponseModel from '@/models/responses/registerUserResponseModel'
+import UserRolesResponseModel from './UserRolesResponseModel'
 
 export type {
 	AddressResponseModel,
@@ -76,4 +77,5 @@ export type {
 	RaceResponseModel,
 	RegisterUserResponseModel,
 	StateResponseModel,
+	UserRolesResponseModel,
 }

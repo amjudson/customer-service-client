@@ -11,6 +11,9 @@ import {
 import userApi from '@/redux/api/userApi'
 import {
   useGetUserListQuery,
+  useGetUserRolesQuery,
+  useGetUserClaimsQuery,
+  useUpdateUserRolesMutation,
 } from '@/redux/api/userApi'
 
 
@@ -23,4 +26,7 @@ export {
   useGetClientByIdQuery,
   userApi,
   useGetUserListQuery,
+  useGetUserRolesQuery,
+  useGetUserClaimsQuery,
+  useUpdateUserRolesMutation,
 }
