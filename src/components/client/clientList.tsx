@@ -1,5 +1,5 @@
 import React from 'react'
-import {ClientModel} from '@/models/clientModel'
+import {ClientModel} from '@/models'
 import {Col, Container, Row} from 'react-bootstrap'
 
 export interface ClientListProps {
@@ -10,14 +10,16 @@ const ClientList = ({clientList}: ClientListProps) => {
   return (
     <div>
       <Container>
-        <Row>
-          <Col className={'col-3'}>
+        <Row className={'border-top border-end text-warning'}>
+          <Col className={'col-3 border-end border-start'}>
             Client Name
           </Col>
         </Row>
-        {clientList && clientList.map((client: ClientModel) => (
-          <Row key={client.clientId}>
-            <Col className={'col-3'}>
+        {clientList && clientList.map((client: ClientModel, index:number) => (
+          <Row className={`border-top border-end ${
+            index >= clientList.length - 1 ? 'border-bottom' : ''}`}
+               key={client.clientId}>
+            <Col className={'col-3 border-end border-start'}>
               {client.clientName}
             </Col>
           </Row>

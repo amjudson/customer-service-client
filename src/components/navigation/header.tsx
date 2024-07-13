@@ -7,6 +7,7 @@ import {
 } from 'react-bootstrap'
 import Link from 'next/link'
 import styles from '@/components/navigation/header.module.scss'
+// import '@/components/navigation/header.module.scss'
 import {useAppDispatch, useAppSelector} from '@/redux/hooks'
 import {useRouter} from 'next/navigation'
 import {setLoggedInUser} from '@/redux'
@@ -17,7 +18,7 @@ const linkStyle = {
 }
 
 const Header = () => {
-  const router = useRouter();
+  const router = useRouter()
   const dispatch = useAppDispatch()
   const userData = useAppSelector(state => state.userAuthSlice)
 
@@ -35,9 +36,14 @@ const Header = () => {
             <Navbar.Brand className={'text-warning'}>Customer Relationship Manager</Navbar.Brand>
           </Link>
           <Nav className={'me-auto'}>
+            <Link legacyBehavior href={'/users'} passHref>
+              <Nav.Item className={'me-2'}>
+                <span className={'text-info add-pointer'}>User</span>
+              </Nav.Item>
+            </Link>
             <Link style={linkStyle} legacyBehavior href={'/client'} passHref>
               <Nav.Item>
-                <span className={'text-info'}>Client</span>
+                <span className={styles.navLinkPointer}>Client</span>
               </Nav.Item>
             </Link>
           </Nav>

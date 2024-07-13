@@ -1,6 +1,6 @@
 .header {
   cursor: pointer;
-  &.headerBrand {
+  &.header-brand {
     font-size: 1rem;
     font-weight: 500;
     color: green !important;
@@ -11,3 +11,13 @@
   }
 }
 
+.nav-link-pointer {
+  cursor: pointer;
+  color: green;
+}
+
+span {
+  &.pointer {
+    cursor: pointer;
+  }
+}
