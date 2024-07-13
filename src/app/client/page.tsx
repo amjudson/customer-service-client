@@ -3,18 +3,19 @@ import React from 'react'
 import {useGetClientListQuery} from '@/redux/api/clientApi'
 import {ClientListResponseModel} from '@/models/responses'
 import ClientList from '@/components/client/clientList'
+import {VortexSpinner} from '@/components/common'
 
 const Page = () => {
   const {data, isLoading} = useGetClientListQuery<ClientListResponseModel>(null)
   if (isLoading) {
-    return <div>Loading...</div>
+    return <VortexSpinner/>
   }
 
   console.log(data)
   return (
     <div>
-      <h1>Client List</h1>
-      <ClientList clientList={data.result} />
+      <h3 className={'m-2 text-success'}>Client List</h3>
+      <ClientList clientList={data.result}/>
     </div>
   )
 }

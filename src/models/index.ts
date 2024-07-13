@@ -1,5 +1,6 @@
 import AddressModel from './addressModel'
 import AddressTypeModel from './addressTypeModel'
+import ApplicationUserModel from '@/models/applicationUserModel'
 import AppointmentModel from './appointmentModel'
 import AppointmentTypeModel from './appointmentTypeModel'
 import AspNetRoleClaimModel from './aspNetRoleClaimModel'
@@ -35,6 +36,7 @@ import UserModel from './userModel'
 export type {
 	AddressModel,
 	AddressTypeModel,
+	ApplicationUserModel,
 	AppointmentModel,
 	AppointmentTypeModel,
 	AspNetRoleClaimModel,

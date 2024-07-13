@@ -4,6 +4,10 @@ const clientApi = createApi({
   reducerPath: 'clientApi',
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_BASE_API_URL,
+    prepareHeaders: (headers: Headers) => {
+      const token = localStorage.getItem('token')
+      token && (headers.append('Authorization', `Bearer ${token}`))
+    },
   }),
   tagTypes: ['Client'],
   endpoints: (builder) => ({

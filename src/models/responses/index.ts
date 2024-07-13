@@ -1,5 +1,7 @@
 import AddressResponseModel from './addressResponseModel'
 import AddressTypeResponseModel from './addressTypeResponseModel'
+import ApplicationUserResponseModel from '@/models/responses/applicationUserResponseModel'
+import ApplicationUserListResponseModel from '@/models/responses/applicationUserListResponseModel'
 import AppointmentResponseModel from './appointmentResponseModel'
 import AppointmentTypeResponseModel from './appointmentTypeResponseModel'
 import AspNetRoleClaimResponseModel from './aspNetRoleClaimResponseModel'
@@ -38,6 +40,8 @@ import RegisterUserResponseModel from '@/models/responses/registerUserResponseMo
 export type {
 	AddressResponseModel,
 	AddressTypeResponseModel,
+	ApplicationUserResponseModel,
+	ApplicationUserListResponseModel,
 	AppointmentResponseModel,
 	AppointmentTypeResponseModel,
 	AspNetRoleClaimResponseModel,
