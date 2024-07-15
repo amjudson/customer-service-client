@@ -1,4 +1,5 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
+import {ClaimsViewModel, RolesViewModel} from '@/models/viewModels'
 
 const userApi = createApi({
   reducerPath: 'userApi',
@@ -18,11 +19,73 @@ const userApi = createApi({
       }),
       providesTags: ['User'],
     }),
+    getUserRoles: builder.query({
+      query: (userId: string) => ({
+        url: `user/getUserManageRole/${userId}`,
+        method: 'GET',
+      }),
+      providesTags: ['User'],
+    }),
+    getUserClaims: builder.query({
+      query: (userId: string) => ({
+        url: `user/getUserManageClaims/${userId}`,
+        method: 'GET',
+      }),
+      providesTags: ['User'],
+    }),
+    updateUserRoles: builder.mutation({
+      query: (userRoles: RolesViewModel) => ({
+        url: `user/postUserManageRole`,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: userRoles,
+      }),
+      invalidatesTags: ['User'],
+    }),
+    updateUserClaims: builder.mutation({
+      query: (userClaims: ClaimsViewModel) => ({
+        url: `user/postUserManageClaims`,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: userClaims,
+      }),
+      invalidatesTags: ['User'],
+    }),
+    lockUnlockUser: builder.mutation({
+      query: (userId: string) => ({
+        url: `user/lockUnlockUser/${userId}`,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }),
+      invalidatesTags: ['User'],
+    }),
+    deleteUser: builder.mutation({
+      query: (userId: string) => ({
+        url: `user/deleteUser/${userId}`,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }),
+      invalidatesTags: ['User'],
+    }),
   }),
 })
 
 export const {
   useGetUserListQuery,
+  useGetUserRolesQuery,
+  useGetUserClaimsQuery,
+  useUpdateUserRolesMutation,
+  useUpdateUserClaimsMutation,
+  useDeleteUserMutation,
+  useLockUnlockUserMutation,
 } = userApi
 
 export default userApi

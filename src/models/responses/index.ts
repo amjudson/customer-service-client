@@ -4,13 +4,6 @@ import ApplicationUserResponseModel from '@/models/responses/applicationUserResp
 import ApplicationUserListResponseModel from '@/models/responses/applicationUserListResponseModel'
 import AppointmentResponseModel from './appointmentResponseModel'
 import AppointmentTypeResponseModel from './appointmentTypeResponseModel'
-import AspNetRoleClaimResponseModel from './aspNetRoleClaimResponseModel'
-import AspNetRoleResponseModel from './aspNetRoleResponseModel'
-import AspNetUserClaimResponseModel from './aspNetUserClaimResponseModel'
-import AspNetUserLoginResponseModel from './aspNetUserLoginResponseModel'
-import AspNetUserResponseModel from './aspNetUserResponseModel'
-import AspNetUserRoleResponseModel from './aspNetUserRoleResponseModel'
-import AspNetUserTokenResponseModel from './aspNetUserTokenResponseModel'
 import BaseResponseModel from './baseResponseModel'
 import BasePostResponseModel from './basePostResponseModel'
 import ClientAddressLookupResponseModel from './clientAddressLookupResponseModel'
@@ -34,8 +27,10 @@ import PersonTypeResponseModel from './personTypeResponseModel'
 import PhoneResponseModel from './phoneResponseModel'
 import PhoneTypeResponseModel from './phoneTypeResponseModel'
 import RaceResponseModel from './raceResponseModel'
+import RegisterUserResponseModel from './registerUserResponseModel'
 import StateResponseModel from './stateResponseModel'
-import RegisterUserResponseModel from '@/models/responses/registerUserResponseModel'
+import UserRolesResponseModel from './UserRolesResponseModel'
+import UserClaimsResponseModel from './UserClaimsResponseModel'
 
 export type {
 	AddressResponseModel,
@@ -44,13 +39,6 @@ export type {
 	ApplicationUserListResponseModel,
 	AppointmentResponseModel,
 	AppointmentTypeResponseModel,
-	AspNetRoleClaimResponseModel,
-	AspNetRoleResponseModel,
-	AspNetUserClaimResponseModel,
-	AspNetUserLoginResponseModel,
-	AspNetUserResponseModel,
-	AspNetUserRoleResponseModel,
-	AspNetUserTokenResponseModel,
 	BaseResponseModel,
 	BasePostResponseModel,
 	ClientAddressLookupResponseModel,
@@ -76,4 +64,6 @@ export type {
 	RaceResponseModel,
 	RegisterUserResponseModel,
 	StateResponseModel,
+	UserClaimsResponseModel,
+	UserRolesResponseModel,
 }

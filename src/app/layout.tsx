@@ -13,14 +13,14 @@ export default function RootLayout({
                                    }: { children: React.ReactNode; }) {
   return (
     <html lang={'en'}>
-    <body>
-    <Provider store={store}>
-      <SSRProvider>
-        <Header/>
-        {children}
-      </SSRProvider>
-    </Provider>
-    </body>
+      <body suppressHydrationWarning>
+        <Provider store={store}>
+          <SSRProvider>
+            <Header/>
+            {children}
+          </SSRProvider>
+        </Provider>
+      </body>
     </html>
   )
 }

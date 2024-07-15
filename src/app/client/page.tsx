@@ -11,7 +11,6 @@ const Page = () => {
     return <VortexSpinner/>
   }
 
-  console.log(data)
   return (
     <div>
       <h3 className={'m-2 text-success'}>Client List</h3>

@@ -47,7 +47,6 @@ const Login = () => {
       setError(response.errorMessages ? response.errorMessages[0] : 'An error occurred')
     }
 
-    console.log('response results', response)
     setLoading(false)
   }
 

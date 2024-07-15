@@ -11,6 +11,12 @@ import {
 import userApi from '@/redux/api/userApi'
 import {
   useGetUserListQuery,
+  useGetUserRolesQuery,
+  useGetUserClaimsQuery,
+  useUpdateUserRolesMutation,
+  useUpdateUserClaimsMutation,
+  useDeleteUserMutation,
+  useLockUnlockUserMutation,
 } from '@/redux/api/userApi'
 
 
@@ -23,4 +29,10 @@ export {
   useGetClientByIdQuery,
   userApi,
   useGetUserListQuery,
+  useGetUserRolesQuery,
+  useGetUserClaimsQuery,
+  useUpdateUserRolesMutation,
+  useUpdateUserClaimsMutation,
+  useDeleteUserMutation,
+  useLockUnlockUserMutation,
 }
