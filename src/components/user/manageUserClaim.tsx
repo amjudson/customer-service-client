@@ -41,7 +41,6 @@ const ManageUserClaim = ({userClaims}: ManageUserClaimProps) => {
   }
 
   const handleSubmit = () => {
-    console.log(claimList)
     if (!userClaims?.userDto) {
       return
     }
