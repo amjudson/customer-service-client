@@ -2,10 +2,10 @@ import React from 'react'
 import {Button, Modal} from 'react-bootstrap'
 
 export interface ModalBoxProps {
-	titleElement: JSX.Element
-	bodyElement: JSX.Element
+	titleElement: React.ReactNode
+	bodyElement: React.ReactNode
 	show: boolean
-	bodyTextElement: JSX.Element
+	bodyTextElement: React.ReactNode
 	yesText?: string
 	noText?: string
 	closeText?: string
@@ -40,18 +40,18 @@ const ModalBox: React.FC<ModalBoxProps> = ({
 			</Modal.Body>
 			<Modal.Footer>
 				{handleNo &&
-					<Button variant='secondary' onClick={handleNo}>
+					<Button className={'me-1'} variant='secondary' onClick={handleNo}>
 						{noText}
 					</Button>
 				}
-				<Button variant='secondary' onClick={handleClose}>
-					{closeText}
-				</Button>
 				{handleYes &&
-          <Button variant='primary' onClick={handleYes}>
+          <Button className={'me-1'}  variant='primary' onClick={handleYes}>
             {yesText}
           </Button>
         }
+				<Button className={'me-1'}  variant='success' onClick={handleClose}>
+					{closeText}
+				</Button>
 			</Modal.Footer>
 		</Modal>
 	)

@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, {useState} from 'react'
 import {
   Button,
   Card,
@@ -9,17 +9,51 @@ import {
   Row,
   Table,
 } from 'react-bootstrap'
-import {useGetUserListQuery} from '@/redux/api'
-import {VortexSpinner} from '@/components/common'
+import {useDeleteUserMutation, useGetUserListQuery, useLockUnlockUserMutation} from '@/redux/api'
+import {ModalBox, VortexSpinner} from '@/components/common'
 import {ApplicationUserListResponseModel} from '@/models/responses'
 import {useRouter} from 'next/navigation'
 
 const UserPage = () => {
+  const [lockUnlockUser] = useLockUnlockUserMutation()
+  const [deleteUser] = useDeleteUserMutation()
   const route = useRouter()
   const {
     data,
     isLoading,
   } = useGetUserListQuery<ApplicationUserListResponseModel>(null)
+
+  const [selectedUserId, setSelectedUserId] = useState<string>('')
+  const [selectedUserEmail, setSelectedUserEmail] = useState<string>('')
+
+  // modal props
+  const [modalShow, setModalShow] = useState(false);
+  const [modalTitle, setModalTitle] = useState(<span>DELETE</span>)
+  const [modalBody, setModalBody] = useState(<div/>)
+  const [modalText, setModalText] = useState(<div/>)
+
+  const handleLockUnlock = (userId: string) => {
+    console.log(userId)
+    lockUnlockUser(userId)
+  }
+
+  const handleDeleteNo = () => {
+    setModalShow(false)
+  };
+
+  const handleDeleteYes = (userId: string) => {
+    deleteUser(userId)
+    setModalShow(false)
+  }
+
+  const handleDelete = (userId: string, email: string) => {
+    setSelectedUserId(userId)
+    setSelectedUserEmail(email)
+    setModalTitle(<div>Delete user <span className={'text-warning'}>{email}</span></div>)
+    setModalBody(<div>Are you sure you want to delete this user?</div>)
+    setModalText(<div>This action cannot be undone.</div>)
+    setModalShow(true)
+  }
 
   if (isLoading) {
     return <VortexSpinner/>
@@ -73,34 +107,37 @@ const UserPage = () => {
                         Claim
                       </Button>
                     </Col>
-                    {user.lockoutEnd === null || user.lockoutEnd.toLocaleString() < Date.now().toLocaleString() ? (
-                      <Col className={'col-3 px-1'}>
-                        <Button
-                          className={'w-100'}
-                          variant={'success'}
-                        >
-                          Lock
-                        </Button>
-                      </Col>
-                    ) : (
-                      <Col className={'col-3 px-1'}>
-                        <Button
-                          className={'w-100'}
-                          variant={'warning'}
-                        >
-                          Unlock
-                        </Button>
-                      </Col>
-                    )}
-                      <Col className={'col-3 px-1'}>
-                        <Button
-                          className={'w-100'}
-                          variant={'danger'}
-                        >
-                          Delete
-                        </Button>
-                      </Col>
+                    <Col className={'col-3 px-1'}>
+                      <Button
+                        className={'w-100'}
+                        variant={user.lockoutEnd === null || user.lockoutEnd.toLocaleString() < Date.now().toLocaleString()
+                          ? 'success'
+                          : 'warning'}
+                        onClick={() => handleLockUnlock(user.id)}
+                      >
+                        {user.lockoutEnd === null || user.lockoutEnd.toLocaleString() < Date.now().toLocaleString()
+                        ? 'Lock' : 'Unlock'}
+                      </Button>
+                    </Col>
+                    <Col className={'col-3 px-1'}>
+                      <Button
+                        className={'w-100'}
+                        variant={'danger'}
+                        onClick={() => handleDelete(user.id, user.email)}
+                      >
+                        Delete
+                      </Button>
+                    </Col>
                   </Row>
+                  <ModalBox
+                    titleElement={modalTitle}
+                    bodyElement={modalBody}
+                    show={modalShow}
+                    bodyTextElement={modalText}
+                    handleClose={() => setModalShow(false)}
+                    handleYes={() => handleDeleteYes(selectedUserId)}
+                    handleNo={handleDeleteNo}
+                  />
                 </td>
               </tr>
             ))}
