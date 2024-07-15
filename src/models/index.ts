@@ -3,13 +3,7 @@ import AddressTypeModel from './addressTypeModel'
 import ApplicationUserModel from '@/models/applicationUserModel'
 import AppointmentModel from './appointmentModel'
 import AppointmentTypeModel from './appointmentTypeModel'
-import AspNetRoleClaimModel from './aspNetRoleClaimModel'
-import AspNetRoleModel from './aspNetRoleModel'
-import AspNetUserClaimModel from './aspNetUserClaimModel'
-import AspNetUserLoginModel from './aspNetUserLoginModel'
-import AspNetUserModel from './aspNetUserModel'
-import AspNetUserRoleModel from './aspNetUserRoleModel'
-import AspNetUserTokenModel from './aspNetUserTokenModel'
+import ClaimSelection from '@/models/claimSelection'
 import ClientAddressLookupModel from './clientAddressLookupModel'
 import ClientEmailLookupModel from './clientEmailLookupModel'
 import ClientFeatureLookupModel from './clientFeatureLookupModel'
@@ -41,13 +35,7 @@ export type {
 	ApplicationUserModel,
 	AppointmentModel,
 	AppointmentTypeModel,
-	AspNetRoleClaimModel,
-	AspNetRoleModel,
-	AspNetUserClaimModel,
-	AspNetUserLoginModel,
-	AspNetUserModel,
-	AspNetUserRoleModel,
-	AspNetUserTokenModel,
+	ClaimSelection,
 	ClientAddressLookupModel,
 	ClientEmailLookupModel,
 	ClientFeatureLookupModel,

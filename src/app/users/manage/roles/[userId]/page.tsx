@@ -18,7 +18,6 @@ const ManageUserRolePage = () => {
     return <VortexSpinner/>
   }
 
-  console.log(data)
   return (
     <div>
       <ManageUserRole userRoles={data?.result}/>

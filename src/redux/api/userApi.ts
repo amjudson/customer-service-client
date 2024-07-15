@@ -1,5 +1,5 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
-import {RolesViewModel} from '@/models/viewModels'
+import {ClaimsViewModel, RolesViewModel} from '@/models/viewModels'
 
 const userApi = createApi({
   reducerPath: 'userApi',
@@ -35,12 +35,43 @@ const userApi = createApi({
     }),
     updateUserRoles: builder.mutation({
       query: (userRoles: RolesViewModel) => ({
-        url: `user/getUserManageClaims/${userRoles}`,
+        url: `user/postUserManageRole`,
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: userRoles,
+      }),
+      invalidatesTags: ['User'],
+    }),
+    updateUserClaims: builder.mutation({
+      query: (userClaims: ClaimsViewModel) => ({
+        url: `user/postUserManageClaims`,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: userClaims,
+      }),
+      invalidatesTags: ['User'],
+    }),
+    lockUnlockUser: builder.mutation({
+      query: (userId: string) => ({
+        url: `user/lockUnlockUser/${userId}`,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }),
+      invalidatesTags: ['User'],
+    }),
+    deleteUser: builder.mutation({
+      query: (userId: string) => ({
+        url: `user/deleteUser/${userId}`,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
       }),
       invalidatesTags: ['User'],
     }),
@@ -52,6 +83,9 @@ export const {
   useGetUserRolesQuery,
   useGetUserClaimsQuery,
   useUpdateUserRolesMutation,
+  useUpdateUserClaimsMutation,
+  useDeleteUserMutation,
+  useLockUnlockUserMutation,
 } = userApi
 
 export default userApi

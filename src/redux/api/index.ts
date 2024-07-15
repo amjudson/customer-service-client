@@ -14,6 +14,9 @@ import {
   useGetUserRolesQuery,
   useGetUserClaimsQuery,
   useUpdateUserRolesMutation,
+  useUpdateUserClaimsMutation,
+  useDeleteUserMutation,
+  useLockUnlockUserMutation,
 } from '@/redux/api/userApi'
 
 
@@ -29,4 +32,7 @@ export {
   useGetUserRolesQuery,
   useGetUserClaimsQuery,
   useUpdateUserRolesMutation,
+  useUpdateUserClaimsMutation,
+  useDeleteUserMutation,
+  useLockUnlockUserMutation,
 }

@@ -1,23 +1,23 @@
 'use client'
 import React, {useState} from 'react'
 import {Button, Card, CardBody, CardHeader, Form, FormCheck, FormGroup} from 'react-bootstrap'
-import {RolesViewModel} from '@/models/viewModels'
-import {RoleSelection} from '@/models'
-import {useUpdateUserRolesMutation} from '@/redux/api'
+import {ClaimsViewModel, RolesViewModel} from '@/models/viewModels'
+import {ClaimSelection, RoleSelection} from '@/models'
+import {useUpdateUserClaimsMutation, useUpdateUserRolesMutation} from '@/redux/api'
 import {useRouter} from 'next/navigation'
 import {ToastDisplay} from '@/components/common'
 
-export interface ManageUserRoleProps {
-  userRoles?: RolesViewModel
+export interface ManageUserClaimProps {
+  userClaims?: ClaimsViewModel
 }
 
-const ManageUserRole = ({userRoles}: ManageUserRoleProps) => {
+const ManageUserClaim = ({userClaims}: ManageUserClaimProps) => {
   const router = useRouter()
-  const [updateRoles] = useUpdateUserRolesMutation()
-  const [firstName, setFirstName] = useState(userRoles?.userDto?.firstName)
-  const [lastName, setLastName] = useState(userRoles?.userDto?.lastName)
-  const [email, setEmail] = useState(userRoles?.userDto?.email)
-  const [rolesList, setRolesList] = useState<RoleSelection[]>(userRoles?.rolesList!)
+  const [updateClaims] = useUpdateUserClaimsMutation()
+  const [firstName, setFirstName] = useState(userClaims?.userDto?.firstName)
+  const [lastName, setLastName] = useState(userClaims?.userDto?.lastName)
+  const [email, setEmail] = useState(userClaims?.userDto?.email)
+  const [claimList, setClaimList] = useState<ClaimSelection[]>(userClaims?.claimsList!)
 
   // toast parameters
   const [toastHeader, setToastHeader] = useState(<div/>)
@@ -29,30 +29,31 @@ const ManageUserRole = ({userRoles}: ManageUserRoleProps) => {
     setToastShow(false)
   }
 
-  const handleRoleSelection = (roleName: string) => {
-    setRolesList(prev => {
-      return prev?.map((role) => {
-        if (role.roleName === roleName) {
-          role = {...role, selected: !role.selected}
+  const handleClaimSelection = (claimType: string) => {
+    setClaimList(prev => {
+      return prev?.map((claim) => {
+        if (claim.claimType === claimType) {
+          claim = {...claim, selected: !claim.selected}
         }
-        return role
+        return claim
       })
     })
   }
 
   const handleSubmit = () => {
-    if (!userRoles?.userDto) {
+    console.log(claimList)
+    if (!userClaims?.userDto) {
       return
     }
 
-    const newUserRoles: RolesViewModel = {
-      userDto: userRoles?.userDto,
-      rolesList: rolesList ?? [],
+    const newUserClaims: ClaimsViewModel = {
+      userDto: userClaims?.userDto,
+      claimsList: claimList ?? [],
     }
 
-    updateRoles(newUserRoles)
-    setToastHeader(<div>Roles Updated</div>)
-    setToastBody(<div>User roles have been updated successfully for {userRoles?.userDto.lastName}</div>)
+    updateClaims(newUserClaims)
+    setToastHeader(<div>Claims Updated</div>)
+    setToastBody(<div>User claims have been updated successfully for {userClaims?.userDto.lastName}</div>)
     setToastShow(true)
   }
 
@@ -70,7 +71,7 @@ const ManageUserRole = ({userRoles}: ManageUserRoleProps) => {
           <CardHeader className={'bg-success bg-gradient ml-0 py-3'}>
             <div className={'row'}>
               <div className={'col-12 text-center'}>
-                <h2 className={'text-white py-2'}>Manage User Role</h2>
+                <h2 className={'text-white py-2'}>Manage User Claims</h2>
               </div>
             </div>
           </CardHeader>
@@ -103,14 +104,14 @@ const ManageUserRole = ({userRoles}: ManageUserRoleProps) => {
               </div>
             </FormGroup>
             <FormGroup className={'mt-3 p-2 border rounded'}>
-              <span>Role Assignments</span>
-              {rolesList && rolesList.map((role, index) => (
+              <span>Claim Assignments</span>
+              {claimList && claimList.map((claim, index) => (
                 <FormCheck key={index}>
-                  <FormCheck.Label>{role.roleName}</FormCheck.Label>
+                  <FormCheck.Label>{claim.claimType}</FormCheck.Label>
                   <FormCheck.Input
                     type={'checkbox'}
-                    checked={role.selected}
-                    onChange={() => {handleRoleSelection(role.roleName)}}
+                    checked={claim.selected}
+                    onChange={() => {handleClaimSelection(claim.claimType)}}
                   />
                 </FormCheck>
               ))}
@@ -140,4 +141,4 @@ const ManageUserRole = ({userRoles}: ManageUserRoleProps) => {
   )
 }
 
-export default ManageUserRole
+export default ManageUserClaim

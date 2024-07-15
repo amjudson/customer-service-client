@@ -2,6 +2,6 @@ import {ApplicationUserModel} from '@/models'
 import {RoleSelection} from '@/models'
 
 export default interface RolesViewModel {
-  user: ApplicationUserModel
+  userDto: ApplicationUserModel
   rolesList: RoleSelection[]
 }

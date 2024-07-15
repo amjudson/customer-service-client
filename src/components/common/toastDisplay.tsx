@@ -4,8 +4,8 @@ import {Toast, ToastContainer} from 'react-bootstrap'
 export interface ToastDisplayProps {
 	toastShow: boolean
 	toastDelay: number
-	toastHeader: JSX.Element
-	toastBody: JSX.Element
+	toastHeader: React.ReactNode
+	toastBody: React.ReactNode
 	setToastShow(showToast: boolean): void
 }
 
