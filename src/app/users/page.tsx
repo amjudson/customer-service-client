@@ -1,7 +1,7 @@
 'use client'
 import React, {useState} from 'react'
 import {
-  Button,
+  Button, ButtonGroup,
   Card,
   CardBody,
   CardHeader,
@@ -13,6 +13,7 @@ import {useDeleteUserMutation, useGetUserListQuery, useLockUnlockUserMutation} f
 import {ModalBox, VortexSpinner} from '@/components/common'
 import {ApplicationUserListResponseModel} from '@/models/responses'
 import {useRouter} from 'next/navigation'
+import {useAppSelector} from '@/redux'
 
 const UserPage = () => {
   const [lockUnlockUser] = useLockUnlockUserMutation()
@@ -24,22 +25,24 @@ const UserPage = () => {
   } = useGetUserListQuery<ApplicationUserListResponseModel>(null)
 
   const [selectedUserId, setSelectedUserId] = useState<string>('')
-  const [selectedUserEmail, setSelectedUserEmail] = useState<string>('')
+  // const [selectedUserEmail, setSelectedUserEmail] = useState<string>('')
 
   // modal props
-  const [modalShow, setModalShow] = useState(false);
+  const [modalShow, setModalShow] = useState(false)
   const [modalTitle, setModalTitle] = useState(<span>DELETE</span>)
   const [modalBody, setModalBody] = useState(<div/>)
   const [modalText, setModalText] = useState(<div/>)
 
+  const userAuth = useAppSelector(state => state.userAuthSlice)
+  const userAdmin = userAuth?.roles?.includes('superadmin')
+
   const handleLockUnlock = (userId: string) => {
-    console.log(userId)
     lockUnlockUser(userId)
   }
 
   const handleDeleteNo = () => {
     setModalShow(false)
-  };
+  }
 
   const handleDeleteYes = (userId: string) => {
     deleteUser(userId)
@@ -48,7 +51,6 @@ const UserPage = () => {
 
   const handleDelete = (userId: string, email: string) => {
     setSelectedUserId(userId)
-    setSelectedUserEmail(email)
     setModalTitle(<div>Delete user <span className={'text-warning'}>{email}</span></div>)
     setModalBody(<div>Are you sure you want to delete this user?</div>)
     setModalText(<div>This action cannot be undone.</div>)
@@ -87,9 +89,8 @@ const UserPage = () => {
                 <td>{user.firstName} {user.lastName}</td>
                 <td>{user.roles ? user.roles.join(',') : ''}</td>
                 <td>{user.userClaims ? user.userClaims.join(',') : ''}</td>
-                <td style={{width: '350px'}}>
-                  <Row>
-                    <Col className={'col-3 px-1'}>
+                <td style={{width: '270px'}}>
+                  <ButtonGroup size={'lg'}>
                       <Button
                         className={'w-100'}
                         variant={'primary'}
@@ -97,8 +98,6 @@ const UserPage = () => {
                       >
                         Roles
                       </Button>
-                    </Col>
-                    <Col className={'col-3 px-1'}>
                       <Button
                         className={'w-100'}
                         variant={'secondary'}
@@ -106,29 +105,27 @@ const UserPage = () => {
                       >
                         Claim
                       </Button>
-                    </Col>
-                    <Col className={'col-3 px-1'}>
                       <Button
                         className={'w-100'}
-                        variant={user.lockoutEnd === null || user.lockoutEnd.toLocaleString() < Date.now().toLocaleString()
+                        variant={user.lockoutEnd === null
+                        || user.lockoutEnd.toLocaleString() < Date.now().toLocaleString()
                           ? 'success'
                           : 'warning'}
                         onClick={() => handleLockUnlock(user.id)}
                       >
                         {user.lockoutEnd === null || user.lockoutEnd.toLocaleString() < Date.now().toLocaleString()
-                        ? 'Lock' : 'Unlock'}
+                          ? 'Lock' : 'Unlock'}
                       </Button>
-                    </Col>
-                    <Col className={'col-3 px-1'}>
-                      <Button
-                        className={'w-100'}
-                        variant={'danger'}
-                        onClick={() => handleDelete(user.id, user.email)}
-                      >
-                        Delete
-                      </Button>
-                    </Col>
-                  </Row>
+                    {userAdmin && (
+                        <Button
+                          className={'w-100'}
+                          variant={'danger'}
+                          onClick={() => handleDelete(user.id, user.email)}
+                        >
+                          Delete
+                        </Button>
+                    )}
+                  </ButtonGroup>
                   <ModalBox
                     titleElement={modalTitle}
                     bodyElement={modalBody}

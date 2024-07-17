@@ -3,5 +3,6 @@ export default interface UserModel {
   lastName?: string;
   id: string;
   email: string;
-  role?: string;
+  roles?: string[];
+  claims?: string[];
 }

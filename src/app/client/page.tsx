@@ -2,11 +2,22 @@
 import React from 'react'
 import {useGetClientListQuery} from '@/redux/api/clientApi'
 import {ClientListResponseModel} from '@/models/responses'
-import ClientList from '@/components/client/clientList'
+import {ClientList} from '@/components/client'
 import {VortexSpinner} from '@/components/common'
+import {useRouter} from 'next/navigation'
+import {UserAuthState} from '@/redux/userAuthSlice'
 
 const Page = () => {
+  const router = useRouter()
   const {data, isLoading} = useGetClientListQuery<ClientListResponseModel>(null)
+  const userAuth: UserAuthState = sessionStorage.getItem('userAuth')
+    ? JSON.parse(sessionStorage.getItem('userAuth') as string)
+    : null
+
+   if (!userAuth.email) {
+     router.push('/login')
+   }
+
   if (isLoading) {
     return <VortexSpinner/>
   }

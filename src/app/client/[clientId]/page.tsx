@@ -1,21 +1,20 @@
+'use client'
 import React from 'react'
 import {useGetClientByIdQuery} from '@/redux/api'
 import {ClientResponseModel} from '@/models/responses'
 import {VortexSpinner} from '@/components/common'
+import {useParams} from 'next/navigation'
+import {ClientDetail} from '@/components/client'
 
-export interface ClientDetailProps {
-  clientId: string
-}
-
-const ClientDetailPage = ({clientId}: ClientDetailProps) => {
+const ClientDetailPage = () => {
+  const {clientId} = useParams()
   const {data, isLoading} = useGetClientByIdQuery<ClientResponseModel>(clientId)
 
-  if (isLoading) return <VortexSpinner/>
+  if (isLoading || !data?.result) return <VortexSpinner/>
 
   return (
     <div>
-      <h3 className={'m-2 text-success'}>Client Detail</h3>
-      <p>{data.result.clientName}</p>
+      <ClientDetail clientDto={data.result}/>
     </div>
   )
 }

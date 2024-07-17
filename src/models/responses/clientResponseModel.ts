@@ -1,8 +1,8 @@
 import {BaseResponseModel} from '@/models/responses'
-import {ClientModel} from '@/models'
+import {ClientDtoModel} from '@/models'
 
 export default interface ClientResponseModel extends BaseResponseModel {
 	data: {
-		result: ClientModel;
+		result: ClientDtoModel;
 	}
 }

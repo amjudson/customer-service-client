@@ -8,23 +8,24 @@ import {
 import Link from 'next/link'
 import styles from '@/components/navigation/header.module.scss'
 // import '@/components/navigation/header.module.scss'
-import {useAppDispatch, useAppSelector} from '@/redux/hooks'
+import {useAppDispatch} from '@/redux/hooks'
 import {useRouter} from 'next/navigation'
 import {setLoggedInUser} from '@/redux'
-import {emptyUserState} from '@/redux/userAuthSlice'
-
-const linkStyle = {
-  cursor: 'pointer',
-}
+import {
+  emptyUserAction,
+} from '@/redux'
+import {UserAuthState} from '@/redux/userAuthSlice'
 
 const Header = () => {
   const router = useRouter()
   const dispatch = useAppDispatch()
-  const userData = useAppSelector(state => state.userAuthSlice)
+  const userData: UserAuthState = sessionStorage.getItem('userAuth')
+    ? JSON.parse(sessionStorage.getItem('userAuth') || '{}')
+    : {}
 
   const handleLogout = () => {
     localStorage.removeItem('token')
-    dispatch(setLoggedInUser({...emptyUserState}))
+    dispatch(setLoggedInUser({...emptyUserAction.payload}))
     router.push('/')
   }
 
@@ -35,24 +36,26 @@ const Header = () => {
           <Link className={styles.headerBrand} legacyBehavior href={'/'} passHref>
             <Navbar.Brand className={'text-warning'}>Customer Relationship Manager</Navbar.Brand>
           </Link>
-          <Nav className={'me-auto'}>
-            <Link legacyBehavior href={'/users'} passHref>
-              <Nav.Item className={'me-2'}>
-                <span className={'text-info add-pointer'}>User</span>
-              </Nav.Item>
-            </Link>
-            <Link style={linkStyle} legacyBehavior href={'/client'} passHref>
-              <Nav.Item>
-                <span className={styles.navLinkPointer}>Client</span>
-              </Nav.Item>
-            </Link>
-          </Nav>
+          {userData.id && (
+            <Nav className={'me-auto'}>
+              <Link legacyBehavior href={'/users'} passHref>
+                <Nav.Item className={'me-2'}>
+                  <span className={'text-info add-pointer'}>User</span>
+                </Nav.Item>
+              </Link>
+              <Link legacyBehavior href={'/client'} passHref>
+                <Nav.Item>
+                  <span className={'text-info add-pointer'}>Client</span>
+                </Nav.Item>
+              </Link>
+            </Nav>
+          )}
         </Container>
         <Container className={'justify-content-end'}>
           {userData.id && (
             <Row className={'me-1'}>
               <Col className={'col-6'}>
-                  Welcome, {userData.firstName} {userData.lastName}
+                Welcome, {userData.firstName} {userData.lastName}
               </Col>
               <Col className={'col-6'}>
                 <Button

@@ -1,6 +1,8 @@
+'use client'
 import React from 'react'
 import {ClientModel} from '@/models'
-import {Col, Container, Row} from 'react-bootstrap'
+import {Container, Table} from 'react-bootstrap'
+import Link from 'next/link'
 
 export interface ClientListProps {
   clientList: ClientModel[]
@@ -10,20 +12,22 @@ const ClientList = ({clientList}: ClientListProps) => {
   return (
     <div>
       <Container>
-        <Row className={'border-top border-end text-warning'}>
-          <Col className={'col-3 border-end border-start'}>
-            Client Name
-          </Col>
-        </Row>
-        {clientList && clientList.map((client: ClientModel, index:number) => (
-          <Row className={`border-top border-end ${
-            index >= clientList.length - 1 ? 'border-bottom' : ''}`}
-               key={client.clientId}>
-            <Col className={'col-3 border-end border-start'}>
-              {client.clientName}
-            </Col>
-          </Row>
-        ))}
+        <Table variant={'dark'} striped border={2}>
+          <thead>
+            <tr className={'border-2 border-light-subtle'}>
+              <th>Client Name</th>
+            </tr>
+          </thead>
+          <tbody>
+          {clientList && clientList.map((client: ClientModel, index:number) => (
+            <tr className={'border-1 border-light-subtle'} key={index}>
+              <td>
+                <Link legacyBehavior href={`/client/${client.clientId}`}>{client.clientName}</Link>
+              </td>
+            </tr>
+          ))}
+          </tbody>
+        </Table>
       </Container>
     </div>
   )
