@@ -9,6 +9,7 @@ import ClientEmailLookupModel from './clientEmailLookupModel'
 import ClientFeatureLookupModel from './clientFeatureLookupModel'
 import ClientFeatureModel from './clientFeatureModel'
 import ClientModel from './clientModel'
+import ClientDtoModel from '@/models/clientDtoModel'
 import ClientPhoneLookupModel from './clientPhoneLookupModel'
 import ClientTypeModel from './clientTypeModel'
 import EmailModel from './emailModel'
@@ -41,6 +42,7 @@ export type {
 	ClientFeatureLookupModel,
 	ClientFeatureModel,
 	ClientModel,
+	ClientDtoModel,
 	ClientPhoneLookupModel,
 	ClientTypeModel,
 	EmailModel,

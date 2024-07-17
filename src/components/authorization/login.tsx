@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import {
   LoginUserModel,
-  UserModel,
 } from '@/models'
 import {inputHelper} from '@/helpers'
 import {useLoginUserMutation} from '@/redux/api'
@@ -11,6 +10,15 @@ import {setLoggedInUser} from '@/redux'
 import {useRouter} from 'next/navigation'
 import {VortexSpinner} from '@/components/common'
 import LoginResponseModel from '@/models/responses/LoginResponseModel'
+
+interface JwtClaims {
+  firstName: string
+  lastName: string
+  id: string
+  email: string
+  roles: string
+  claims: string
+}
 
 const Login = () => {
   const dispatch = useAppDispatch()
@@ -39,9 +47,10 @@ const Login = () => {
 
     if (response.data) {
       const {token} = response.data.result
-      const {firstName, lastName, id, email, role}: UserModel = jwtDecode(token ?? '')
+      const {firstName, lastName, id, email, roles, claims}: JwtClaims = jwtDecode(token ?? '')
       localStorage.setItem('token', token ?? '')
-      dispatch(setLoggedInUser({firstName, lastName, id, email, role}))
+      dispatch(setLoggedInUser({
+        firstName, lastName, id, email, roles, claims}))
       router.push('/')
     } else if (response.error) {
       setError(response.errorMessages ? response.errorMessages[0] : 'An error occurred')
