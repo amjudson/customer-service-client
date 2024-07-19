@@ -8,24 +8,19 @@ import {
 import Link from 'next/link'
 import styles from '@/components/navigation/header.module.scss'
 // import '@/components/navigation/header.module.scss'
-import {useAppDispatch} from '@/redux/hooks'
+import {useAppDispatch, useAppSelector} from '@/redux/hooks'
 import {useRouter} from 'next/navigation'
-import {setLoggedInUser} from '@/redux'
-import {
-  emptyUserAction,
-} from '@/redux'
-import {UserAuthState} from '@/redux/userAuthSlice'
+import {setUserLogout} from '@/redux/userAuthSlice'
 
 const Header = () => {
   const router = useRouter()
   const dispatch = useAppDispatch()
-  const userData: UserAuthState = sessionStorage.getItem('userAuth')
-    ? JSON.parse(sessionStorage.getItem('userAuth') || '{}')
-    : {}
+  const userData = useAppSelector((state) => state.userAuthSlice)
 
   const handleLogout = () => {
     localStorage.removeItem('token')
-    dispatch(setLoggedInUser({...emptyUserAction.payload}))
+    dispatch(setUserLogout())
+    console.log('Logout:', userData)
     router.push('/')
   }
 

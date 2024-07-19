@@ -53,12 +53,24 @@ export const userAuthSlice = createSlice({
       state.roles = action.payload.roles.split(',')
       state.claims = action.payload.claims.split(',')
       sessionStorage.setItem('userAuth', JSON.stringify(state))
+      return state
+    },
+    setUserLogout: () => {
+      sessionStorage.removeItem('userAuth')
+      return {...emptyUserState}
+    },
+    getUserData: (state) => {
+      const user:UserAuthState
+        = sessionStorage.getItem('userAuth') ? JSON.parse(sessionStorage.getItem('userAuth') ?? '') : {}
+      return {...state, ...user}
     },
   },
 })
 
 export const {
   setLoggedInUser,
+  setUserLogout,
+  getUserData,
 } = userAuthSlice.actions
 
 export default userAuthSlice.reducer

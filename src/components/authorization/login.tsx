@@ -61,7 +61,7 @@ const Login = () => {
 
   return (
     <div className={'container text-center'}>
-      {loading && <VortexSpinner />}
+      {loading && <VortexSpinner/>}
       <form method={'post'} onSubmit={handleSubmit}>
         <h1 className={'mt-5'}>Login</h1>
         <div className={'mt-5'}>
@@ -101,6 +101,16 @@ const Login = () => {
           </button>
         </div>
       </form>
+
+      <div className={'mt-2'}>
+        <button
+          className={'btn btn-success'}
+          style={{width: '200px'}}
+          onClick={() => router.push('/register')}
+        >
+          Register
+        </button>
+      </div>
     </div>)
 }
 
