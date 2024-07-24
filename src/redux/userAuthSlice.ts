@@ -55,9 +55,17 @@ export const userAuthSlice = createSlice({
       sessionStorage.setItem('userAuth', JSON.stringify(state))
       return state
     },
-    setUserLogout: () => {
+    setUserLogout: (state) => {
       sessionStorage.removeItem('userAuth')
-      return {...emptyUserState}
+      return {...state,
+        authenticated: false,
+        firstName: '',
+        lastName: '',
+        id: '',
+        email: '',
+        roles: [],
+        claims: [],
+      }
     },
     getUserData: (state) => {
       const user:UserAuthState

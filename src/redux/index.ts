@@ -5,8 +5,10 @@ import {
   setLoggedInUser,
   emptyUserAction,
   emptyUserState,
+  UserAuthState,
 } from '@/redux/userAuthSlice'
 
+export type {UserAuthState}
 
 export {
   useAppDispatch,
