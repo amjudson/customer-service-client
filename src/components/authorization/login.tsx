@@ -5,11 +5,10 @@ import {
 import {inputHelper} from '@/helpers'
 import {useLoginUserMutation} from '@/redux/api'
 import {jwtDecode} from 'jwt-decode'
-import {useAppDispatch} from '@/redux'
-import {setLoggedInUser} from '@/redux'
 import {useRouter} from 'next/navigation'
 import {VortexSpinner} from '@/components/common'
 import LoginResponseModel from '@/models/responses/LoginResponseModel'
+import {useAuth} from '@/components/authorization/authProvider'
 
 interface JwtClaims {
   firstName: string
@@ -21,8 +20,8 @@ interface JwtClaims {
 }
 
 const Login = () => {
-  const dispatch = useAppDispatch()
   const router = useRouter()
+  const auth = useAuth()
   const [loginUser] = useLoginUserMutation()
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -49,8 +48,18 @@ const Login = () => {
       const {token} = response.data.result
       const {firstName, lastName, id, email, roles, claims}: JwtClaims = jwtDecode(token ?? '')
       localStorage.setItem('token', token ?? '')
-      dispatch(setLoggedInUser({
-        firstName, lastName, id, email, roles, claims}))
+      const payloadRoles = roles ? roles.split(',') : []
+      const payloadClaims = claims ? claims.split(',') : []
+      const userResponse = {
+        authenticated: true,
+        firstName,
+        lastName,
+        id,
+        email,
+        roles: payloadRoles,
+        claims: payloadClaims,
+      }
+      auth.loginUser(userResponse)
       router.push('/')
     } else if (response.error) {
       setError(response.errorMessages ? response.errorMessages[0] : 'An error occurred')

@@ -7,20 +7,17 @@ import {
 } from 'react-bootstrap'
 import Link from 'next/link'
 import styles from '@/components/navigation/header.module.scss'
-// import '@/components/navigation/header.module.scss'
-import {useAppDispatch, useAppSelector} from '@/redux/hooks'
+import {useAppSelector} from '@/redux/hooks'
 import {useRouter} from 'next/navigation'
-import {setUserLogout} from '@/redux/userAuthSlice'
+import {useAuth} from '@/components/authorization'
 
 const Header = () => {
   const router = useRouter()
-  const dispatch = useAppDispatch()
-  const userData = useAppSelector((state) => state.userAuthSlice)
+  const auth = useAuth()
+  const user = useAppSelector(state => state.userAuthSlice)
 
   const handleLogout = () => {
-    localStorage.removeItem('token')
-    dispatch(setUserLogout())
-    console.log('Logout:', userData)
+    auth.clearUser()
     router.push('/')
   }
 
@@ -31,7 +28,7 @@ const Header = () => {
           <Link className={styles.headerBrand} legacyBehavior href={'/'} passHref>
             <Navbar.Brand className={'text-warning'}>Customer Relationship Manager</Navbar.Brand>
           </Link>
-          {userData.id && (
+          {user?.authenticated && (
             <Nav className={'me-auto'}>
               <Link legacyBehavior href={'/users'} passHref>
                 <Nav.Item className={'me-2'}>
@@ -47,10 +44,10 @@ const Header = () => {
           )}
         </Container>
         <Container className={'justify-content-end'}>
-          {userData.id && (
+          {user?.authenticated && (
             <Row className={'me-1'}>
               <Col className={'col-6'}>
-                Welcome, {userData.firstName} {userData.lastName}
+                Welcome, {user.firstName} {user.lastName}
               </Col>
               <Col className={'col-6'}>
                 <Button
@@ -62,7 +59,7 @@ const Header = () => {
               </Col>
             </Row>
           )}
-          {!userData.id && (
+          {!user?.authenticated && (
             <Row className={'me-3'}>
               <Col className={'col-5'}>
                 <Button

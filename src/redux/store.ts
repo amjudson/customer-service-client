@@ -4,7 +4,7 @@ import {
   clientApi,
   userApi,
 } from '@/redux/api'
-import userAuthSlice from '@/redux/userAuthSlice'
+import userAuthSlice from '@/redux/slices/userAuthSlice'
 
 const store = configureStore({
   reducer: {

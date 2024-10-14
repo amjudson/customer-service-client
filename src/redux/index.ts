@@ -5,8 +5,11 @@ import {
   setLoggedInUser,
   emptyUserAction,
   emptyUserState,
-} from '@/redux/userAuthSlice'
+  UserAuthState,
+  setUserLogout,
+} from '@/redux/slices/userAuthSlice'
 
+export type {UserAuthState}
 
 export {
   useAppDispatch,
@@ -15,4 +18,5 @@ export {
   setLoggedInUser,
   emptyUserAction,
   emptyUserState,
+  setUserLogout,
 }

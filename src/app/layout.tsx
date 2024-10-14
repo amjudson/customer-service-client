@@ -5,8 +5,8 @@ import {Provider} from 'react-redux'
 import store from '@/redux/store'
 import '@/scss/main.scss'
 import '@fortawesome/fontawesome-pro/css/all.min.css'
-import {SSRProvider} from 'react-bootstrap'
 import Header from '@/components/navigation/header'
+import {AuthProvider} from '@/components/authorization'
 
 export default function RootLayout({
                                      children,
@@ -15,10 +15,10 @@ export default function RootLayout({
     <html lang={'en'}>
       <body suppressHydrationWarning>
         <Provider store={store}>
-          <SSRProvider>
+          <AuthProvider>
             <Header/>
             {children}
-          </SSRProvider>
+          </AuthProvider>
         </Provider>
       </body>
     </html>
