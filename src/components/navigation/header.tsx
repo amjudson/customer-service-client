@@ -7,21 +7,17 @@ import {
 } from 'react-bootstrap'
 import Link from 'next/link'
 import styles from '@/components/navigation/header.module.scss'
-import {useAppDispatch} from '@/redux/hooks'
+import {useAppSelector} from '@/redux/hooks'
 import {useRouter} from 'next/navigation'
-import {setUserLogout} from '@/redux/userAuthSlice'
 import {useAuth} from '@/components/authorization'
 
 const Header = () => {
   const router = useRouter()
-  const dispatch = useAppDispatch()
-  const {user} = useAuth()
+  const auth = useAuth()
+  const user = useAppSelector(state => state.userAuthSlice)
 
   const handleLogout = () => {
-    localStorage.removeItem('token')
-    sessionStorage.removeItem('userAuth')
-    dispatch(setUserLogout())
-    console.log('Logout:', user)
+    auth.clearUser()
     router.push('/')
   }
 

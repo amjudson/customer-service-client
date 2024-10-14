@@ -7,7 +7,6 @@ const StartupView = () => {
   const liTextClass = 'text-primary'
   const {user} = useAuth()
 
-  console.log('user', user)
   return (
     <Container className={'mt-3'}>
       <h3 className={'text-success'}>The Customer Relations Management Tool</h3>

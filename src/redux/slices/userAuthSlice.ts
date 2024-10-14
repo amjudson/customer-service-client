@@ -6,16 +6,9 @@ export interface UserAuthState extends UserModel {
 }
 
 
-interface UserAuthAction {
+export interface UserAuthAction {
   type: string
-  payload: {
-    firstName: string
-    lastName: string
-    id: string
-    email: string
-    roles: string
-    claims: string
-  }
+  payload: UserModel
 }
 
 export const emptyUserAction: UserAuthAction = {
@@ -25,8 +18,8 @@ export const emptyUserAction: UserAuthAction = {
     lastName: '',
     id: '',
     email: '',
-    roles: '',
-    claims: '',
+    roles: [],
+    claims: [],
   },
 }
 
@@ -50,12 +43,13 @@ export const userAuthSlice = createSlice({
       state.lastName = action.payload.lastName
       state.id = action.payload.id
       state.email = action.payload.email
-      state.roles = action.payload.roles.split(',')
-      state.claims = action.payload.claims.split(',')
+      state.roles = action.payload.roles ? action.payload.roles : []
+      state.claims = action.payload.claims ? action.payload.claims : []
       sessionStorage.setItem('userAuth', JSON.stringify(state))
       return state
     },
     setUserLogout: (state) => {
+      localStorage.removeItem('token')
       sessionStorage.removeItem('userAuth')
       return {...state,
         authenticated: false,

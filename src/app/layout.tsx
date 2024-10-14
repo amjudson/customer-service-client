@@ -15,10 +15,10 @@ export default function RootLayout({
     <html lang={'en'}>
       <body suppressHydrationWarning>
         <Provider store={store}>
-            <AuthProvider>
-              <Header/>
-                {children}
-            </AuthProvider>
+          <AuthProvider>
+            <Header/>
+            {children}
+          </AuthProvider>
         </Provider>
       </body>
     </html>

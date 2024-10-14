@@ -5,7 +5,7 @@ import {ClientListResponseModel} from '@/models/responses'
 import {ClientList} from '@/components/client'
 import {VortexSpinner} from '@/components/common'
 import {useRouter} from 'next/navigation'
-import {UserAuthState} from '@/redux/userAuthSlice'
+import {UserAuthState} from '@/redux/slices/userAuthSlice'
 
 const Page = () => {
   const router = useRouter()

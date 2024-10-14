@@ -6,7 +6,8 @@ import {
   emptyUserAction,
   emptyUserState,
   UserAuthState,
-} from '@/redux/userAuthSlice'
+  setUserLogout,
+} from '@/redux/slices/userAuthSlice'
 
 export type {UserAuthState}
 
@@ -17,4 +18,5 @@ export {
   setLoggedInUser,
   emptyUserAction,
   emptyUserState,
+  setUserLogout,
 }
