@@ -9,12 +9,13 @@ interface ClientDetailProps {
 const ClientDetail = ({clientDto}: ClientDetailProps) => {
   return (
     <div>
-      <h3 className={'m-2 text-success'}>Client Detail</h3>
-      <h4 className={'text-info'}>{clientDto.client.clientName}</h4>
-      <Table striped border={1} bordered variant={'dark'}>
+      <h3 className={'m-2 text-success'}>Client Detail for
+        <span style={{fontSize: 30}} className={'text-info'}> {clientDto.client.clientName}</span>
+      </h3>
+      <Table size={'sm'} striped border={1} bordered variant={'dark'}>
         <thead>
         <tr>
-          <th>Address</th>
+          <th className={'ps-1'}>Address</th>
           <th>Address (optional)</th>
           <th>City</th>
           <th>State</th>
@@ -24,7 +25,7 @@ const ClientDetail = ({clientDto}: ClientDetailProps) => {
         <tbody>
         {clientDto.addresses && clientDto.addresses.map((address, index) => (
           <tr key={index}>
-            <td>{address.addressLine1}</td>
+            <td className={'ps-3'}>{address.addressLine1}</td>
             <td>{address.addressLine2}</td>
             <td>{address.city}</td>
             <td>{address.stateId}</td>
@@ -33,7 +34,7 @@ const ClientDetail = ({clientDto}: ClientDetailProps) => {
         ))}
         </tbody>
       </Table>
-      <Table striped border={1} bordered variant={'dark'}>
+      <Table size={'sm'} striped border={1} bordered variant={'dark'}>
         <thead>
         <tr>
           <th>Phone Number</th>
@@ -43,13 +44,13 @@ const ClientDetail = ({clientDto}: ClientDetailProps) => {
         <tbody>
         {clientDto.phones && clientDto.phones.map((phone, index) => (
           <tr key={index}>
-            <td>{phone.phoneNumber}</td>
+            <td className={'ps-3'}>{phone.phoneNumber}</td>
             <td>{phone.extension}</td>
           </tr>
         ))}
         </tbody>
       </Table>
-      <Table striped border={1} bordered variant={'dark'}>
+      <Table size={'sm'} striped border={1} bordered variant={'dark'}>
         <thead>
         <tr>
           <th>Email</th>
@@ -58,7 +59,7 @@ const ClientDetail = ({clientDto}: ClientDetailProps) => {
         <tbody>
         {clientDto.emails && clientDto.emails.map((email, index) => (
           <tr key={index}>
-            <td>{email.emailAddress}</td>
+            <td className={'ps-3'}>{email.emailAddress}</td>
           </tr>
         ))}
         </tbody>
