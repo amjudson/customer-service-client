@@ -27,11 +27,13 @@ $button-boarder-color: (
 }
 
 $row-colors: (
+        background: #676262,
         text: #000000,
         text2: rgba(34, 255, 0, 0.5),
         header: #757575,
         odd: #808080,
-        even: #C0C0C0
+        even: #C0C0C0,
+        border: #b7b0b0,
 );
 
 @function row-color($color-name) {
@@ -81,23 +83,6 @@ $margin-input-field-right: 0;
 $margin-input-field-bottom: 10px;
 $margin-input-field-left: 0;
 
-
-body {
-  background-color: $color-background;
-  color: $color-text;
-}
-
-li {
-  &.no-decor {
-    list-style-type: none;
-  }
-}
-
-li span {
-  font-family: 'Lucida Console', 'Courier New', monospace;
-  color: #5ab7ec;
-  //margin-left: 10px;
-}
 
 /* width */
 ::-webkit-scrollbar {

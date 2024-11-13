@@ -1,0 +1,64 @@
+@import "../base/settings";
+
+// font Awesome icons
+.fa-square-plus {
+  --fa-primary-color: white;
+  --fa-secondary-color: #0ea019;
+}
+
+.fa-square-x {
+  --fa-primary-color: #4D4D4D;
+  --fa-secondary-color: #CFCFCF;
+}
+
+.fa-memo-circle-info, .fa-pen-to-square {
+  --fa-primary-color: rgba(255, 204, 0, 0.28);
+  --fa-secondary-color: #0033ff;
+}
+
+.fa-arrow-up-arrow-down {
+  cursor: pointer;
+  margin-left: 5px;
+  --fa-primary-color: #0ea019;
+  --fa-secondary-color: #0033ff;
+}
+
+.fa-arrow-down {
+  cursor: pointer;
+  margin-left: 5px;
+  color: lighten(#0033ff, 15%);
+}
+
+.fa-arrow-up {
+  cursor: pointer;
+  margin-left: 5px;
+  color: #0ea019;
+}
+
+.fa-octagon-check {
+  --fa-primary-color: white;
+  --fa-secondary-color: green;
+}
+
+.fa-octagon-xmark {
+  --fa-primary-color: white;
+  --fa-secondary-color: red;
+}
+
+
+.fa-square-check, .fa-square {
+  &.checked {
+    --fa-primary-color: white;
+    --fa-secondary-color: #0ea019;
+  }
+
+  &.unchecked {
+    --fa-primary-color: white;
+    --fa-secondary-color: red;
+  }
+
+  &.is-not-null {
+    --fa-primary-color: white;
+    --fa-secondary-color: #0077ff;
+  }
+}

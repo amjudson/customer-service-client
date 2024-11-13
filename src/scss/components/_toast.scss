@@ -1,0 +1,33 @@
+@import "../base/settings";
+// Toast
+.toast-header {
+  background-image: linear-gradient(to right, #039eff, lighten(#039eff, 25%));
+  color: #FFC745;
+
+  button.btn-close {
+    position: absolute;
+    right: 0;
+    width: 20px;
+    margin-right: 10px;
+    background-color: lighten(red, 20%);
+  }
+}
+
+.toast-body {
+  background-image: linear-gradient(to right, #03993F, lighten(#03993F, 20%));
+  color: #FFE34E;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.error-message {
+  border: .5px solid red;
+  border-radius: 5px;
+  background-color: lightyellow;
+  color: red;
+  margin-top: 5px;
+  &-box {
+    margin: 20px;
+  }
+}
+

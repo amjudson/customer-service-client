@@ -1,0 +1,39 @@
+@import '../base/settings';
+
+// Columns
+.col {
+  overflow: hidden;
+  &.line-end {
+    border-right: 1px solid $color-header;
+  }
+
+  &.col-id {
+    flex: 0 0 auto;
+    width: 4.75%;
+
+    &-detail {
+      font-size: small;
+      font-weight: normal;
+    }
+  }
+
+  &.small-title {
+    font-size: small;
+    font-weight: bold;
+    color: color(secondary);
+  }
+  &.no-pointer {
+    cursor: default;
+  }
+
+  &.small-col-header {
+    font-size: smaller;
+    margin: 0 0 0 2px;
+  }
+  &.button-col {
+    text-align: right;
+    flex: 0 0 auto;
+    width: 16.66666667%;
+  }
+}
+
