@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import {ClientModel} from '@/models'
-import {Container, Table} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 import Link from 'next/link'
 
 export interface ClientListProps {
@@ -12,22 +12,26 @@ const ClientList = ({clientList}: ClientListProps) => {
   return (
     <div>
       <Container>
-        <Table variant={'dark'} striped border={2}>
+        <table className={'table-inner'}>
           <thead>
-            <tr className={'border-2 border-light-subtle'}>
-              <th>Client Name</th>
-            </tr>
+          <tr className={''}>
+            <th>Client Name</th>
+            <th>Action</th>
+          </tr>
           </thead>
           <tbody>
           {clientList && clientList.map((client: ClientModel, index:number) => (
-            <tr className={'border-1 border-light-subtle'} key={index}>
+            <tr className={'border-1 '} key={index}>
               <td>
                 <Link legacyBehavior href={`/client/${client.clientId}`}>{client.clientName}</Link>
+              </td>
+              <td>
+                Edit
               </td>
             </tr>
           ))}
           </tbody>
-        </Table>
+        </table>
       </Container>
     </div>
   )

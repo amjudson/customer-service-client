@@ -1,0 +1,79 @@
+@import '../base/settings';
+
+// Form
+.form-control {
+  height: $height-input-field;
+  padding: $padding-input-field;
+  font-weight: $font-weight-controls;
+  background-color: $color-input-background;
+  margin: $margin-input-field-top $margin-input-field-right $margin-input-field-bottom $margin-input-field-left;
+
+  &-readonly {
+    background-color: darken($color-input-background, 30%);
+  }
+
+  &-required {
+    background-color: $color-required-input;
+  }
+
+  &-name-field {
+    width: $width-input-name-field;
+  }
+
+  &-short-field {
+    width: $width-input-short-field;
+  }
+}
+
+.form-select {
+  font-weight: $font-weight-controls;
+  background-color: $color-input-background;
+  height: $height-input-field;
+  padding: $padding-input-field;
+  margin: $margin-input-field-top $margin-input-field-right $margin-input-field-bottom $margin-input-field-left;
+
+  option {
+    font-weight: $font-weight-controls;
+  }
+
+  &-required {
+    background-color: $color-required-input;
+  }
+
+  &-size {
+    width: 40%;
+  }
+
+  &-left-gutter {
+    margin-left: 20px;
+  }
+}
+
+.input-group {
+  border-radius: 5px;
+
+  span {
+    height: $height-input-field;
+    border-bottom-right-radius: 5px;
+  }
+}
+
+label {
+  margin-left: 20px;
+
+  &-form-label {
+    text-align: right;
+    padding-right: 0;
+    margin-right: 0;
+    justify-content: right;
+    align-items: center;
+    align-content: center;
+  }
+}
+
+.form-label {
+  &.on-top {
+    margin-left: 20px;
+    min-height: 38px;
+  }
+}

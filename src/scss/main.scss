@@ -1,3 +1,13 @@
-@import "base";
-@import "layout";
-@import "component";
+@import 'base/settings';
+@import 'base/base';
+@import 'components/button';
+@import 'components/column';
+@import 'components/component';
+@import 'components/container';
+@import 'components/form';
+@import "components/icons";
+@import 'components/layout';
+@import 'components/row';
+@import "components/table";
+@import "components/toast";
+@import "components/tooltip";

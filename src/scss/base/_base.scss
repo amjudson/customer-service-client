@@ -1,0 +1,69 @@
+@import "settings";
+
+body {
+  background-color: $color-background;
+  color: $color-text;
+}
+
+li {
+  &.no-decor {
+    list-style-type: none;
+  }
+}
+
+li span {
+  font-family: 'Lucida Console', 'Courier New', monospace;
+  color: #5ab7ec;
+  //margin-left: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  &.indent-short-align-right {
+    text-align: right;
+    flex: 0 0 auto;
+    width: 16.66666667%;
+  }
+}
+
+h5 span {
+  color: color(secondary);
+}
+
+h3 span {
+  font-size: 20px;
+  color: color(secondary);
+}
+
+span {
+  &.activated {
+    color: #0ea019;
+  }
+  &.deactivated {
+    color: #959FA6;
+  }
+  &.accent {
+    color: #5ab7ec;
+  }
+  &.error {
+    color: red;
+  }
+}
+
+// unordered list
+li a.menu-item {
+  text-decoration: none;
+  color: color('quaternary');
+
+  &.unused {
+    cursor: auto;
+    color: lighten(color('quaternary'), 30%);
+  }
+}
+
+i.add-pointer {
+  cursor: pointer;
+}
+
+.add-pointer {
+  cursor: pointer;
+}

@@ -1,0 +1,26 @@
+@import '../base/settings';
+
+// Button
+.btn {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px 0 10px 0;
+
+  &.add {
+    margin: 5px 0;
+    width: 25px;
+    height: 25px;
+
+    span {
+      text-align: center;
+    }
+  }
+
+  &.app-back {
+    background-color: $color-button-back;
+  }
+
+  &.add-border {
+    border: 1px solid button-border-color(success);
+  }
+}

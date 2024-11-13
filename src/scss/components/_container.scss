@@ -1,0 +1,65 @@
+@import '../base/settings';
+
+// Container
+.container {
+  &.grid-margin {
+    //margin: 30px 10px;
+  }
+
+  &.scroll-bar {
+    width: 20px;
+    height: auto;
+  }
+
+  &.no-break {
+    white-space: nowrap;
+  }
+
+  &.with-break {
+    font-size: small;
+    background-color: lightgrey;
+    color: black;
+    white-space: pre-wrap;
+  }
+
+  &-center {
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    text-align: center;
+  }
+}
+
+.container-fluid {
+  &.split {
+    width: 50%;
+  }
+  &.full-view {
+    width: 100%;
+  }
+  &.text-display {
+    h4, h5 {
+      color: color(primary);
+    }
+    h6 {
+      width: 75%;
+      color: black;
+      &:nth-child(odd) {
+        background-color: row-color(odd);
+      }
+      &:nth-child(even) {
+        background-color: row-color(even);
+      }
+      margin: 0;
+      strong {
+        margin-left: 30px;
+      }
+    }
+  }
+}
