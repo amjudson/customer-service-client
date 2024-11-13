@@ -46,10 +46,10 @@ const Header = () => {
         <Container className={'justify-content-end'}>
           {user?.authenticated && (
             <Row className={'me-1'}>
-              <Col className={'col-6'}>
+              <Col className={'col-auto text-center align-content-center'} >
                 Welcome, {user.firstName} {user.lastName}
               </Col>
-              <Col className={'col-6'}>
+              <Col>
                 <Button
                   variant={'secondary'}
                   onClick={handleLogout}

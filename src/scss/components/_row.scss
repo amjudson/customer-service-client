@@ -1,0 +1,40 @@
+@import '../base/settings';
+
+// Row
+.row {
+  &-hidden {
+    display: none;
+  }
+  &.detail {
+    cursor: pointer;
+    color: lighten(row-color(text), 20%);
+    font-weight: bold;
+    border-bottom: 1px solid black;
+
+    &:nth-child(odd) {
+      background-color: row-color(odd);
+    }
+
+    &:nth-child(even) {
+      background-color: row-color(even);
+    }
+
+    &.no-pointer {
+      cursor: default;
+    }
+  }
+  &.header {
+    font-weight: bold;
+    font-size: medium;
+    background-color: row-color(header);
+    color: row-color(text);
+    border-bottom: 2px solid $color-header;
+  }
+  &.input {
+    margin-bottom: $margin-input-row-bottom;
+  }
+  &.button-row {
+    padding: 5px;
+    margin: 15px 5px 0 0;
+  }
+}
