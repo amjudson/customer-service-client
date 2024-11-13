@@ -18,7 +18,11 @@ import {
   useDeleteUserMutation,
   useLockUnlockUserMutation,
 } from '@/redux/api/userApi'
-
+import statesApi from '@/redux/api/statesApi'
+import {
+  useGetStatesListQuery,
+  useGetStateByIdQuery,
+} from '@/redux/api/statesApi'
 
 export {
   authApi,
@@ -35,4 +39,7 @@ export {
   useUpdateUserClaimsMutation,
   useDeleteUserMutation,
   useLockUnlockUserMutation,
+  statesApi,
+  useGetStatesListQuery,
+  useGetStateByIdQuery,
 }

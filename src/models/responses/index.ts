@@ -29,6 +29,7 @@ import PhoneTypeResponseModel from './phoneTypeResponseModel'
 import RaceResponseModel from './raceResponseModel'
 import RegisterUserResponseModel from './registerUserResponseModel'
 import StateResponseModel from './stateResponseModel'
+import StateListResponseModel from './stateListResponseModel'
 import UserRolesResponseModel from './UserRolesResponseModel'
 import UserClaimsResponseModel from './UserClaimsResponseModel'
 
@@ -64,6 +65,7 @@ export type {
 	RaceResponseModel,
 	RegisterUserResponseModel,
 	StateResponseModel,
+	StateListResponseModel,
 	UserClaimsResponseModel,
 	UserRolesResponseModel,
 }
