@@ -23,6 +23,22 @@ import {
   useGetStatesListQuery,
   useGetStateByIdQuery,
 } from '@/redux/api/statesApi'
+import personApi from '@/redux/api/personApi'
+import {
+  useGetPersonListQuery,
+  useGetPersonByIdQuery,
+  useGetPersonListByClientQuery,
+  PersonListRequestParams,
+} from '@/redux/api/personApi'
+import personTypeApi from '@/redux/api/personTypeApi'
+import {
+  useGetPersonTypeListQuery,
+  useGetPersonTypeByIdQuery,
+  useCreatePersonTypeMutation,
+  useUpdatePersonTypeMutation,
+} from '@/redux/api/personTypeApi'
+
+export type {PersonListRequestParams}
 
 export {
   authApi,
@@ -42,4 +58,13 @@ export {
   statesApi,
   useGetStatesListQuery,
   useGetStateByIdQuery,
+  personApi,
+  useGetPersonListQuery,
+  useGetPersonByIdQuery,
+  useGetPersonListByClientQuery,
+  personTypeApi,
+  useGetPersonTypeListQuery,
+  useGetPersonTypeByIdQuery,
+  useCreatePersonTypeMutation,
+  useUpdatePersonTypeMutation,
 }

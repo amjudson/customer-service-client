@@ -1,0 +1,97 @@
+
+.form-format {
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-auto-rows: 2.5rem;
+  grid-row-gap: 1.1rem;
+  grid-column-gap: 1.2rem;
+
+  label {
+    font-weight: bold;
+    font-size: 1.2rem;
+    align-content: center;
+    align-items: end;
+  }
+
+  label,
+  input,
+  select {
+    display: block;
+    width: 100%;
+    min-height: 3rem;
+  }
+
+  input:not([type='checkbox']),
+  select {
+    font-weight: bold;
+    border: 2px solid #013b01;
+    border-radius: 8px;
+    padding: 0.2rem 0.5rem;
+
+    &.number-input {
+      width: 5%;
+    }
+
+    &.x-small-input {
+      width: 15%;
+    }
+
+    &.small-input {
+      width: 25%;
+    }
+
+    &.medium-input {
+      width: 50%;
+    }
+
+    &.large-input {
+      width: 75%;
+    }
+  }
+
+  input:focus,
+  select:focus {
+    outline: none;
+    background: #d8f3df;
+    border-color: #2ddf5c;
+  }
+
+  input[type='checkbox'] {
+    border: 2px solid #ccc;
+    background: white;
+    width: 1rem;
+    height: 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  input[type='checkbox']:checked {
+    background: #2ddf5c;
+    border: #0e4f1f;
+  }
+
+  input.invalid,
+  select.invalid {
+    border-color: red !important;
+    background: #ecadad;
+  }
+
+  button[type='submit'] {
+    display: block;
+  }
+
+  &.form-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #ff5454;
+  }
+
+  &__checkbox {
+    grid-column: span 2;
+  }
+}
+

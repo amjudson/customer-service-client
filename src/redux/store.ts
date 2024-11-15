@@ -3,6 +3,8 @@ import {
   authApi,
   clientApi,
   userApi,
+  personApi,
+  personTypeApi,
   statesApi,
 } from '@/redux/api'
 import userAuthSlice from '@/redux/slices/userAuthSlice'
@@ -13,6 +15,8 @@ const store = configureStore({
     [authApi.reducerPath]: authApi.reducer,
     [clientApi.reducerPath]: clientApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
+    [personApi.reducerPath]: personApi.reducer,
+    [personTypeApi.reducerPath]: personTypeApi.reducer,
     [statesApi.reducerPath]: statesApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
@@ -20,6 +24,8 @@ const store = configureStore({
       .concat(authApi.middleware)
       .concat(userApi.middleware)
       .concat(clientApi.middleware)
+      .concat(personApi.middleware)
+      .concat(personTypeApi.middleware)
       .concat(statesApi.middleware),
 })
 

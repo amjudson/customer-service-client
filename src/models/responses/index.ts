@@ -19,11 +19,13 @@ import EmailTypeResponseModel from './emailTypeResponseModel'
 import EmployeeResponseModel from './employeeResponseModel'
 import EmployeeTypeResponseModel from './employeeTypeResponseModel'
 import GenderResponseModel from './genderResponseModel'
-import PeopleResponseModel from './peopleResponseModel'
+import PersonListResponseModel from './personListResponseModel'
+import PersonResponseModel from './personResponseModel'
 import PersonAddressLookupResponseModel from './personAddressLookupResponseModel'
 import PersonEmailLookupResponseModel from './personEmailLookupResponseModel'
 import PersonPhoneLookupResponseModel from './personPhoneLookupResponseModel'
 import PersonTypeResponseModel from './personTypeResponseModel'
+import PersonTypeListResponseModel from '@/models/responses/personTypeListResponseModel'
 import PhoneResponseModel from './phoneResponseModel'
 import PhoneTypeResponseModel from './phoneTypeResponseModel'
 import RaceResponseModel from './raceResponseModel'
@@ -55,11 +57,13 @@ export type {
 	EmployeeResponseModel,
 	EmployeeTypeResponseModel,
 	GenderResponseModel,
-	PeopleResponseModel,
+	PersonListResponseModel,
+	PersonResponseModel,
 	PersonAddressLookupResponseModel,
 	PersonEmailLookupResponseModel,
 	PersonPhoneLookupResponseModel,
 	PersonTypeResponseModel,
+	PersonTypeListResponseModel,
 	PhoneResponseModel,
 	PhoneTypeResponseModel,
 	RaceResponseModel,

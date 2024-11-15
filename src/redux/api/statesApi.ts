@@ -19,8 +19,8 @@ const statesApi = createApi({
       providesTags: ['States'],
     }),
     getStateById: builder.query({
-      query: (stateId) => ({
-        url: `client/getStateById/${stateId}`,
+      query: (stateId:number) => ({
+        url: `states/getStateById/${stateId}`,
         method: 'GET',
       }),
       providesTags: ['States'],

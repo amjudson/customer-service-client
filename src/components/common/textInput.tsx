@@ -4,6 +4,7 @@ import {SelectSize, SizeOption} from './helpers'
 
 interface TextInputProps {
 	name?: string
+	label?: string
 	value: string | number | null | undefined
 	id?: string
 	placeholder?: string
@@ -25,7 +26,8 @@ interface TextInputProps {
 }
 
 const TextInput: React.FC<TextInputProps> = ({
-	                                             name,
+	                                             label,
+																							 name,
 	                                             value,
 	                                             id,
 	                                             onChange,
@@ -56,11 +58,12 @@ const TextInput: React.FC<TextInputProps> = ({
 		<Fragment>
 			{name &&
 				<Col className={labelColumnSize}>
-					<Form.Label htmlFor={controlId}>{name}</Form.Label>
+					<Form.Label htmlFor={controlId}>{label}</Form.Label>
 				</Col>
 			}
 			<Col className={selectBoxSize}>
 				<Form.Control
+					name={name}
 					disabled={isDisabled}
 					readOnly={isReadonly}
 					className={isReadonly ? 'form-control-readonly' : ''}

@@ -18,7 +18,7 @@ import EmployeeModel from './employeeModel'
 import EmployeeTypeModel from './employeeTypeModel'
 import GenderModel from './genderModel'
 import LoginUserModel from '@/models/loginUserModel'
-import PeopleModel from './peopleModel'
+import PersonModel from './personModel'
 import PersonAddressLookupModel from './personAddressLookupModel'
 import PersonEmailLookupModel from './personEmailLookupModel'
 import PersonPhoneLookupModel from './personPhoneLookupModel'
@@ -29,6 +29,7 @@ import RaceModel from './raceModel'
 import StateModel from './stateModel'
 import UserModel from './userModel'
 import RoleSelection from './roleSelection'
+import PersonDtoModel from '@/models/personDtoModel'
 
 export type {
 	AddressModel,
@@ -51,7 +52,8 @@ export type {
 	EmployeeTypeModel,
 	GenderModel,
 	LoginUserModel,
-	PeopleModel,
+	PersonDtoModel,
+	PersonModel,
 	PersonAddressLookupModel,
 	PersonEmailLookupModel,
 	PersonPhoneLookupModel,
