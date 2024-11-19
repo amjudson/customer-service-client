@@ -24,7 +24,7 @@ const DatePickerComponent: React.FC<DatePickerComponentProps> = ({
                                                                    showMonthDropdown,
                                                                    isCol = true,
                                                                    isRow = true,
-  id,
+                                                                   id,
                                                                  }) => {
 
   const internalId = id
@@ -66,16 +66,25 @@ const DatePickerComponent: React.FC<DatePickerComponentProps> = ({
     )
   }
 
+  if (!isCol && !isRow) {
+    body = (
+      <Fragment>
+        <label htmlFor={internalId}>{name}</label>
+        {datePicker}
+      </Fragment>
+    )
+  }
+
   return isRow ? (
-        <Row>
-          {body}
-        </Row>
-      )
-      : (
-        <Fragment>
-          {body}
-        </Fragment>
-      )
+      <Row>
+        {body}
+      </Row>
+    )
+    : (
+      <Fragment>
+        {body}
+      </Fragment>
+    )
 }
 
 export default DatePickerComponent

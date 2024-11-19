@@ -1,16 +1,16 @@
 @import '../base/settings';
 
-// react date picker
-.react-datepicker-wrapper {
-  & input {
-    background-color: $color-input-background;
-    border-radius: 10px;
-    font-weight: $font-weight-controls;
-    &.short {
-      width: $width-short-date-field;
-    }
-  }
-}
+//// react date picker
+//.react-datepicker-wrapper {
+//  input {
+//    background-color: $color-input-background;
+//    border-radius: 10px;
+//    font-weight: $font-weight-controls;
+//    &.short {
+//      width: $width-short-date-field;
+//    }
+//  }
+//}
 
 .modal {
   &-title {
@@ -20,32 +20,6 @@
     color: black;
   }
 }
-
-// react-select https://react-select.com/home
-.react-select-container {
-  height: 30px;
-  .react-select {
-    &__control {
-      color: yellow;
-    }
-    &__value-container {
-      color: green;
-    }
-    &__indicators {
-      color: grey;
-    }
-    &__menu {
-      color: purple;
-    }
-    &__menu-list {
-      color: deeppink;
-    }
-    &__option {
-      color: black;
-    }
-  }
-}
-
 
 .move-to-right {
   display: block;
