@@ -7,7 +7,7 @@ import {VortexSpinner} from '@/components/common'
 import {useRouter} from 'next/navigation'
 import {UserAuthState} from '@/redux/slices/userAuthSlice'
 
-const Page = () => {
+const ClientListPage = () => {
   const router = useRouter()
   const {data, isLoading} = useGetClientListQuery<ClientListResponseModel>(null)
   const userAuth: UserAuthState = sessionStorage.getItem('userAuth')
@@ -30,4 +30,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default ClientListPage

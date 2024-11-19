@@ -1,0 +1,30 @@
+// react-select https://react-select.com/home
+.react-select-box {
+  &__input {
+    align-items: center;
+  }
+
+  &__indicators {
+    color: deeppink;
+  }
+  .react-select {
+    &__control {
+      color: yellow;
+    }
+    &__value-container {
+      color: green;
+    }
+    &__indicators {
+      color: grey;
+    }
+    &__menu {
+      color: purple;
+    }
+    &__menu-list {
+      color: deeppink;
+    }
+    &__option {
+      color: black;
+    }
+  }
+}

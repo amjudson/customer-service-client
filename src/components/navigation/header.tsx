@@ -36,8 +36,13 @@ const Header = () => {
                 </Nav.Item>
               </Link>
               <Link legacyBehavior href={'/client'} passHref>
-                <Nav.Item>
+                <Nav.Item className={'me-2'}>
                   <span className={'text-info add-pointer'}>Client</span>
+                </Nav.Item>
+              </Link>
+              <Link legacyBehavior href={'/person'} passHref>
+                <Nav.Item className={'me-2'}>
+                  <span className={'text-info add-pointer'}>People</span>
                 </Nav.Item>
               </Link>
             </Nav>

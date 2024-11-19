@@ -18,7 +18,27 @@ import {
   useDeleteUserMutation,
   useLockUnlockUserMutation,
 } from '@/redux/api/userApi'
+import statesApi from '@/redux/api/statesApi'
+import {
+  useGetStatesListQuery,
+  useGetStateByIdQuery,
+} from '@/redux/api/statesApi'
+import personApi from '@/redux/api/personApi'
+import {
+  useGetPersonListQuery,
+  useGetPersonByIdQuery,
+  useGetPersonListByClientQuery,
+  PersonListRequestParams,
+} from '@/redux/api/personApi'
+import personTypeApi from '@/redux/api/personTypeApi'
+import {
+  useGetPersonTypeListQuery,
+  useGetPersonTypeByIdQuery,
+  useCreatePersonTypeMutation,
+  useUpdatePersonTypeMutation,
+} from '@/redux/api/personTypeApi'
 
+export type {PersonListRequestParams}
 
 export {
   authApi,
@@ -35,4 +55,16 @@ export {
   useUpdateUserClaimsMutation,
   useDeleteUserMutation,
   useLockUnlockUserMutation,
+  statesApi,
+  useGetStatesListQuery,
+  useGetStateByIdQuery,
+  personApi,
+  useGetPersonListQuery,
+  useGetPersonByIdQuery,
+  useGetPersonListByClientQuery,
+  personTypeApi,
+  useGetPersonTypeListQuery,
+  useGetPersonTypeByIdQuery,
+  useCreatePersonTypeMutation,
+  useUpdatePersonTypeMutation,
 }

@@ -5,7 +5,7 @@ import DatePickerComponent from './datePickerComponent'
 import FilterForm from './filterForm'
 import ModalBox from './modalBox'
 import NullCheckBox from './nullCheckBox'
-import SelectControl from './selectControl'
+import SelectComponent from './selectComponent'
 import TextInput from './textInput'
 import ToastDisplay from './toastDisplay'
 import ValueListItem from './valueListItem'
@@ -14,6 +14,7 @@ import {
 	SelectSize,
 	SizeOption,
 } from '@/components/common/helpers'
+import DatePickerControl from '@/components/common/datePickerControl'
 
 export {
 	SelectSize,
@@ -21,10 +22,11 @@ export {
 	CheckBoxControl,
 	CopyToClipboard,
 	DatePickerComponent,
+	DatePickerControl,
 	FilterForm,
 	ModalBox,
 	NullCheckBox,
-	SelectControl,
+	SelectComponent,
 	TextInput,
 	ToastDisplay,
 	ValueListItem,

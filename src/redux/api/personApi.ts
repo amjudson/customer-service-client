@@ -1,4 +1,12 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
+import {PersonModel} from '@/models'
+
+export interface PersonListRequestParams {
+  clientId?: string
+  searchText?: string
+  pageNumber?: number
+  pageSize?: number
+}
 
 const personApi = createApi({
   reducerPath: 'personApi',
@@ -12,21 +20,28 @@ const personApi = createApi({
   tagTypes: ['Person'],
   endpoints: (builder) => ({
     getPersonList: builder.query({
-      query: () => ({
-        url: `person/getPersonList`,
+      query: (params:PersonListRequestParams) => ({
+        url: `person/getPersonList?searchText=${params.searchText}&pageNumber=${params.pageNumber}&pageSize=${params.pageSize}`,
+        method: 'GET',
+      }),
+      providesTags: ['Person'],
+    }),
+    getPersonListByClient: builder.query({
+      query: (params:PersonListRequestParams) => ({
+        url: `person/getPersonListByClient/${params.clientId}?searchText=${params.searchText}&pageNumber=${params.pageNumber}&pageSize=${params.pageSize}`,
         method: 'GET',
       }),
       providesTags: ['Person'],
     }),
     getPersonById: builder.query({
-      query: (personId) => ({
+      query: (personId:number) => ({
         url: `person/getPersonById/${personId}`,
         method: 'GET',
       }),
       providesTags: ['Person'],
     }),
     createPerson: builder.mutation({
-      query: (person) => ({
+      query: (person:PersonModel) => ({
         url: `person/createPerson`,
         method: 'POST',
         body: person,
@@ -34,8 +49,8 @@ const personApi = createApi({
       invalidatesTags: ['Person'],
     }),
     updatePerson: builder.mutation({
-      query: (person) => ({
-        url: `person/updatePerson`,
+      query: (person:PersonModel) => ({
+        url: `person/updatePerson/${person.personId}`,
         method: 'PUT',
         body: person,
       }),
@@ -47,6 +62,7 @@ const personApi = createApi({
 export const {
   useGetPersonListQuery,
   useGetPersonByIdQuery,
+  useGetPersonListByClientQuery,
   useCreatePersonMutation,
   useUpdatePersonMutation,
 } = personApi

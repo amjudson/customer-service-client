@@ -3,17 +3,28 @@
 .table-inner {
   width: 100%;
   border: 2px solid row-color(border);
+  margin: 1rem 0;
+
+  &.min-table {
+    width: 50%;
+  }
 
   thead {
-    background-color: row-color(background);
+    background-color: row-color(background); // darken(row-color(background), 10%);
     color: row-color(text);
+    tr {
+      border: 2px solid row-color(border);
+
+      th {
+        padding: 0.625rem;
+        text-align: left;
+        border-left: 1px solid row-color(border);
+        border-right: 1px solid row-color(border);
+      }
+    }
   }
 
-  th {
-    border: 3px solid row-color(border);
-    padding: 10px;
-    text-align: left;
-  }
+
 
   tbody {
     tr {
@@ -39,5 +50,4 @@
       }
     }
   }
-
 }
