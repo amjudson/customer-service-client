@@ -1,4 +1,4 @@
-import Header from '@components/navigation/Header'
+import Header from './header'
 
 export {
   Header,
